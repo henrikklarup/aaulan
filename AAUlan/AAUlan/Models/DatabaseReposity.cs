@@ -10,6 +10,7 @@ namespace AAUlan.Models
     {
         AAUlanDatabaseEntities aauEnt = new AAUlanDatabaseEntities();
 
+        #region AddOrder
         public bool AddOrder(Pizza pizza)
         {
             //Find last id
@@ -28,11 +29,108 @@ namespace AAUlan.Models
             Save();
             return true;
         }
+        #endregion
 
+        #region AddUser
+        /// <summary>
+        /// Add user to the database
+        /// </summary>
+        /// <param name="user">User wich will be added</param>
+        public void AddUser(User user)
+        {
+            //Add user
+            aauEnt.AddToUser(user);
+
+            //Save database
+            Save();
+        }
+        #endregion
+
+        #region User Validation
+        #region GetUserRoleFromUsername
+        /// <summary>
+        /// Get the userrole from the username
+        /// </summary>
+        /// <param name="Username">Username of user</param>
+        /// <returns>User role of user</returns>
+        public string GetUserRoleFromUsername(string Username)
+        {
+            return aauEnt.User.FirstOrDefault(d => d.Username == Username).Role;
+        }
+        #endregion
+
+        #region GetUserFromUsername
+        public User GetUserFromUsername(string Username)
+        {
+            return aauEnt.User.FirstOrDefault(d => d.Username == Username);
+        }
+        #endregion
+
+        #region Promote
+        public void Promote(string Username)
+        {
+            User user = GetUserFromUsername(Username);
+            if (user.Role.Trim() == "Crew")
+            {
+                user.Role = "Moderator";
+            }
+            else if (user.Role.Trim() == "Moderator")
+            {
+                user.Role = "Administrator";
+            }
+            Save();
+        }
+        #endregion
+
+        #region Demote
+        public void Demote(string Username)
+        {
+            User user = GetUserFromUsername(Username);
+            if (user.Role.Trim() == "Administrator")
+            {
+                user.Role = "Moderator";
+            }
+            else if (user.Role.Trim() == "Crew")
+            {
+                user.Role = "User";
+            }
+            Save();
+        }
+        #endregion
+
+        #region ValidateUser
+        /// <summary>
+        /// Validate the user with the database
+        /// </summary>
+        /// <param name="Username">Username</param>
+        /// <param name="Password">Encrypted password</param>
+        /// <returns>State of user. True if valid</returns>
+        public bool ValidateUser(string Username, string Password)
+        {
+            //Declare user to validate
+            User validateUser = aauEnt.User.FirstOrDefault(d => d.Username == Username);
+
+            //Validate Username
+            if (validateUser == null)
+            {
+                return false;
+            }
+
+            //Validate passwords and return
+            if (Password.Trim() == validateUser.Password.Trim())
+                return true;
+            else
+                return false;
+        }
+        #endregion
+        #endregion
+
+        #region Save
         public void Save()
         {
             aauEnt.SaveChanges();
         }
+        #endregion
 
     }
 }
