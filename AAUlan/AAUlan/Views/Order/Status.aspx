@@ -5,9 +5,7 @@
     <h2>Status</h2>
     <%using (Html.BeginForm())
       { %>
-    <p>
-    <%: ViewData["Message"]%>
-    </p>
+    <p><%: ViewData["Message"]%></p>
     <%} %>
 
 </asp:Content>
