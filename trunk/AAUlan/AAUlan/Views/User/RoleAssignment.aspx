@@ -28,11 +28,11 @@
            <%using (Html.BeginForm("PromoteOrDemote","User")) { %>
            <tr>
             <td>
-                <%: user.Username%>
+                <p><%: user.Username %></p>
                 <%: Html.Hidden("Username",user.Username) %>
             </td>
             <td>
-                <%: user.Role.Trim() %>
+                <p><%: user.Role.Trim() %></p>
             </td>
 
             <td>
