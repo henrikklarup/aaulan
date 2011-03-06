@@ -32,6 +32,7 @@
           <Property Name="Note" Type="nchar" MaxLength="50" />
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LANID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -73,6 +74,7 @@
           <Property Type="String" Name="Note" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Type="Int32" Name="Number" Nullable="false" />
           <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="LANID" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -91,6 +93,7 @@
           <EntitySetMapping Name="Pizza">
             <EntityTypeMapping TypeName="AAUlanDatabaseModel.Pizza">
               <MappingFragment StoreEntitySet="Pizza">
+                <ScalarProperty Name="LANID" ColumnName="LANID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
