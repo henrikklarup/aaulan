@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Index</h2>
-    INDEX!!
+    <p>INDEX!!</p>
     <%: Html.ActionLink("Index","Index","Order") %>
 
 </asp:Content>
