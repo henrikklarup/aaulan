@@ -19,7 +19,7 @@
 <table width="80%" cellpadding="2" cellspacing="0" class="main" border="0">
     <tr>
         <td>
-         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
         </asp:ContentPlaceHolder>
         </td>
