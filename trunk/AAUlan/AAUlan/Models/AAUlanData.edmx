@@ -6,22 +6,22 @@
     <edmx:StorageModels>
     <Schema Namespace="AAUlanDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AAUlanDatabaseModelStoreContainer">
-          <EntitySet Name="Deadline" EntityType="AAUlanDatabaseModel.Store.Deadline" store:Type="Tables" store:Schema="dbo" store:Name="Deadline">
-            <DefiningQuery>SELECT 
-      [Deadline].[Time] AS [Time]
-      FROM [dbo].[Deadline] AS [Deadline]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Deadline" EntityType="AAUlanDatabaseModel.Store.Deadline" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Pizza" EntityType="AAUlanDatabaseModel.Store.Pizza" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="AAUlanDatabaseModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Pizza_Deadline" Association="AAUlanDatabaseModel.Store.FK_Pizza_Deadline">
+            <End Role="Deadline" EntitySet="Deadline" />
+            <End Role="Pizza" EntitySet="Pizza" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\HENRIK KLARUP\DESKTOP\AAULAN\AAULAN\AAULAN\APP_DATA\AAULANDATABASE.MDF.dbo.Deadline' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Deadline">
           <Key>
-            <PropertyRef Name="Time" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pizza">
           <Key>
@@ -42,21 +42,31 @@
           <Property Name="Password" Type="nchar" Nullable="false" MaxLength="50" />
           <Property Name="Role" Type="nchar" Nullable="false" MaxLength="15" />
         </EntityType>
+        <Association Name="FK_Pizza_Deadline">
+          <End Role="Deadline" Type="AAUlanDatabaseModel.Store.Deadline" Multiplicity="1" />
+          <End Role="Pizza" Type="AAUlanDatabaseModel.Store.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deadline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="LANID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AAUlanDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="AAUlanDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Deadline" EntityType="AAUlanDatabaseModel.Deadline" />
           <EntitySet Name="User" EntityType="AAUlanDatabaseModel.User" />
           <EntitySet Name="Pizza" EntityType="AAUlanDatabaseModel.Pizza" />
+          <EntitySet Name="Deadline" EntityType="AAUlanDatabaseModel.Deadline" />
+          <AssociationSet Name="FK_Pizza_Deadline" Association="AAUlanDatabaseModel.FK_Pizza_Deadline">
+            <End Role="Deadline" EntitySet="Deadline" />
+            <End Role="Pizza" EntitySet="Pizza" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Deadline">
-          <Key>
-            <PropertyRef Name="Time" />
-          </Key>
-          <Property Name="Time" Type="DateTime" Nullable="false" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Username" />
@@ -75,16 +85,36 @@
           <Property Type="Int32" Name="Number" Nullable="false" />
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="Int32" Name="LANID" Nullable="false" />
+          <NavigationProperty Name="Deadline" Relationship="AAUlanDatabaseModel.FK_Pizza_Deadline" FromRole="Pizza" ToRole="Deadline" />
         </EntityType>
+        <EntityType Name="Deadline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <NavigationProperty Name="Pizza" Relationship="AAUlanDatabaseModel.FK_Pizza_Deadline" FromRole="Deadline" ToRole="Pizza" />
+        </EntityType>
+        <Association Name="FK_Pizza_Deadline">
+          <End Type="AAUlanDatabaseModel.Deadline" Role="Deadline" Multiplicity="1" />
+          <End Type="AAUlanDatabaseModel.Pizza" Role="Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deadline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="LANID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AAUlanDatabaseModelStoreContainer" CdmEntityContainer="AAUlanDatabaseEntities">
-          <EntitySetMapping Name="Deadline"><EntityTypeMapping TypeName="AAUlanDatabaseModel.Deadline"><MappingFragment StoreEntitySet="Deadline">
-            <ScalarProperty Name="Time" ColumnName="Time" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="User"><EntityTypeMapping TypeName="AAUlanDatabaseModel.User"><MappingFragment StoreEntitySet="User">
             <ScalarProperty Name="Username" ColumnName="Username" />
             <ScalarProperty Name="Password" ColumnName="Password" />
@@ -99,6 +129,16 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deadline">
+            <EntityTypeMapping TypeName="AAUlanDatabaseModel.Deadline">
+              <MappingFragment StoreEntitySet="Deadline">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -123,9 +163,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="AAUlanData">
-        <EntityTypeShape EntityType="AAUlanDatabaseModel.Deadline" Width="1.5" PointX="0.75" PointY="0.75" Height="1.211080729166667" IsExpanded="true" />
-        <EntityTypeShape EntityType="AAUlanDatabaseModel.User" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AAUlanDatabaseModel.User" Width="1.5" PointX="0.5" PointY="3.25" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="AAUlanDatabaseModel.Pizza" Width="1.5" PointX="3.375" PointY="0.75" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="AAUlanDatabaseModel.Deadline" Width="1.5" PointX="0.5" PointY="0.75" Height="1.9802864583333335" />
+        <AssociationConnector Association="AAUlanDatabaseModel.FK_Pizza_Deadline" >
+          <ConnectorPoint PointX="2" PointY="1.7401432291666668" />
+          <ConnectorPoint PointX="3.375" PointY="1.7401432291666668" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

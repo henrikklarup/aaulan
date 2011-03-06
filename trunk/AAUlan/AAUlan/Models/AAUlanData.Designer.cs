@@ -16,6 +16,11 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("AAUlanDatabaseModel", "FK_Pizza_Deadline", "Deadline", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(AAUlan.Models.Deadline), "Pizza", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AAUlan.Models.Pizza), true)]
+
+#endregion
 
 namespace AAUlan.Models
 {
@@ -68,22 +73,6 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Deadline> Deadline
-        {
-            get
-            {
-                if ((_Deadline == null))
-                {
-                    _Deadline = base.CreateObjectSet<Deadline>("Deadline");
-                }
-                return _Deadline;
-            }
-        }
-        private ObjectSet<Deadline> _Deadline;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<User> User
         {
             get
@@ -112,17 +101,25 @@ namespace AAUlan.Models
             }
         }
         private ObjectSet<Pizza> _Pizza;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Deadline> Deadline
+        {
+            get
+            {
+                if ((_Deadline == null))
+                {
+                    _Deadline = base.CreateObjectSet<Deadline>("Deadline");
+                }
+                return _Deadline;
+            }
+        }
+        private ObjectSet<Deadline> _Deadline;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Deadline EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDeadline(Deadline deadline)
-        {
-            base.AddObject("Deadline", deadline);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the User EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -138,6 +135,14 @@ namespace AAUlan.Models
         public void AddToPizza(Pizza pizza)
         {
             base.AddObject("Pizza", pizza);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Deadline EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDeadline(Deadline deadline)
+        {
+            base.AddObject("Deadline", deadline);
         }
 
         #endregion
@@ -161,11 +166,17 @@ namespace AAUlan.Models
         /// <summary>
         /// Create a new Deadline object.
         /// </summary>
-        /// <param name="time">Initial value of the Time property.</param>
-        public static Deadline CreateDeadline(global::System.DateTime time)
+        /// <param name="startTime">Initial value of the StartTime property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="endTime">Initial value of the EndTime property.</param>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static Deadline CreateDeadline(global::System.DateTime startTime, global::System.String name, global::System.DateTime endTime, global::System.Int32 id)
         {
             Deadline deadline = new Deadline();
-            deadline.Time = time;
+            deadline.StartTime = startTime;
+            deadline.Name = name;
+            deadline.EndTime = endTime;
+            deadline.ID = id;
             return deadline;
         }
 
@@ -175,32 +186,129 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime Time
+        public global::System.DateTime StartTime
         {
             get
             {
-                return _Time;
+                return _StartTime;
             }
             set
             {
-                if (_Time != value)
+                OnStartTimeChanging(value);
+                ReportPropertyChanging("StartTime");
+                _StartTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartTime");
+                OnStartTimeChanged();
+            }
+        }
+        private global::System.DateTime _StartTime;
+        partial void OnStartTimeChanging(global::System.DateTime value);
+        partial void OnStartTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EndTime
+        {
+            get
+            {
+                return _EndTime;
+            }
+            set
+            {
+                OnEndTimeChanging(value);
+                ReportPropertyChanging("EndTime");
+                _EndTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndTime");
+                OnEndTimeChanged();
+            }
+        }
+        private global::System.DateTime _EndTime;
+        partial void OnEndTimeChanging(global::System.DateTime value);
+        partial void OnEndTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
                 {
-                    OnTimeChanging(value);
-                    ReportPropertyChanging("Time");
-                    _Time = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Time");
-                    OnTimeChanged();
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
                 }
             }
         }
-        private global::System.DateTime _Time;
-        partial void OnTimeChanging(global::System.DateTime value);
-        partial void OnTimeChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAUlanDatabaseModel", "FK_Pizza_Deadline", "Pizza")]
+        public EntityCollection<Pizza> Pizza
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pizza>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Pizza");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pizza>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Pizza", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -384,6 +492,47 @@ namespace AAUlan.Models
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAUlanDatabaseModel", "FK_Pizza_Deadline", "Deadline")]
+        public Deadline Deadline
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Deadline>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Deadline").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Deadline>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Deadline").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Deadline> DeadlineReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Deadline>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Deadline");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Deadline>("AAUlanDatabaseModel.FK_Pizza_Deadline", "Deadline", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
