@@ -5,18 +5,16 @@
     <h2>Index</h2>
     <%using (Html.BeginForm("Index", "Order"))
       { %>
-    <p>
-    <%: Html.Label("Navn: ") %>
+    <p><%: Html.Label("Navn: ") %></p>
     <%: Html.TextBoxFor(model => Model.pizza.Name)%>
     <br />
-    <%: Html.Label("Note: ") %>
+    <p><%: Html.Label("Note: ") %></p>
     <%: Html.TextBoxFor(model => Model.pizza.Note)%>
     <br />
-    <%: Html.Label("Pizza nr: ") %>
+    <p><%: Html.Label("Pizza nr: ") %></p>
     <%: Html.TextBoxFor(model => Model.pizza.Number)%>
     <br />
     <input value="Order pizza" type="submit" />
-    </p>
     <%} %>
 
 </asp:Content>
