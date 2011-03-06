@@ -46,6 +46,19 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region User
+        #region GetAllUsers
+        /// <summary>
+        /// Get all users from database
+        /// </summary>
+        /// <returns>All users</returns>
+        public IQueryable<User> GetAllUsers()
+        {
+            return aauEnt.User;
+        }
+        #endregion
+        #endregion
+
         #region User Validation
         #region GetUserRoleFromUsername
         /// <summary>
@@ -121,6 +134,20 @@ namespace AAUlan.Models
                 return true;
             else
                 return false;
+        }
+        #endregion
+
+        #region GetUsersByUsername
+        /// <summary>
+        /// Get all the users matching the username search text
+        /// </summary>
+        /// <param name="username">Username to search for</param>
+        /// <returns>Matching Users</returns>
+        public IQueryable<User> GetUsersByUsername(string username)
+        {
+            return from e in GetAllUsers()
+                   where e.Username.ToLower().Contains(username.ToLower())
+                   select e;
         }
         #endregion
         #endregion
