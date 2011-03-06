@@ -62,7 +62,6 @@ table.userManagement
     border-style:solid;
     border-width:thin;
     border-collapse:collapse;
-    
 }
 table.userManagement th
 {
@@ -137,14 +136,12 @@ ul#menu li a
     line-height: 2.8em;
     background-color: #e8eef4;
     color: #222222;
-    font-size:1;
 }
 
 ul#menu li a:hover
 {
-    background-color: #fff;
+    background-color: #ffffff;
     text-decoration: none;
-    font-size:1;
 }
 
 ul#menu li a:active
@@ -155,6 +152,55 @@ ul#menu li a:active
 
 ul#menu li.selected a
 {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label
+{
+    margin-top:20px;
+    font-weight:bold;
+    font-family:Tahoma;
+    color:Black;
+}
+.editor-label
+{
+    margin-top:20px;
+    font-weight:bold;
+    font-family:Tahoma;
+    color:Black;
+}
+.display-field
+{
+    font-family:Tahoma;
+    background-color:#F7BB71;
+    border-style:solid;
+    border-collapse:collapse;
+    border-width:thin;
+    border-color:Gray;
+    padding:5px;
+    color:Black;
+    width:90%;
+}
+.editor-field
+{
+    font-family:Tahoma;
+    padding:5px;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
 }
