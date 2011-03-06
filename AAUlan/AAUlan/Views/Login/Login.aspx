@@ -16,6 +16,7 @@
       <%: Html.ValidationMessage("Password", "*")%>                 
       <input type="submit" name="SubmitButton1" id="submit" value="Login" />
     <%} %>
+    <%: Html.ActionLink("Create User", "Create", "Login")%>
 
 </asp:Content>
 
