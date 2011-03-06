@@ -35,7 +35,7 @@ h2
 
 h3
 {
-    font-size:larger
+    font-size:larger;
 }
 
  a:visited, a:active, a:link
@@ -55,6 +55,26 @@ a:visited, a:active, a:link, a:hover
     font-family:Tahoma;
 }
 
+/* Table classes */
+
+table.userManagement
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+    
+}
+table.userManagement th
+{
+    background-color:#AA700F;
+    color:White;
+}
+table.userManagement td
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+}
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
