@@ -85,6 +85,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\AAUlanDatabase.mdf" />
@@ -96,10 +97,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Login\Create.aspx" />
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\Order\Status.aspx" />
     <Content Include="Views\Order\Index.aspx" />
     <Content Include="Views\Shared\LoginBox.ascx" />
+    <Content Include="Views\User\RoleAssignment.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
