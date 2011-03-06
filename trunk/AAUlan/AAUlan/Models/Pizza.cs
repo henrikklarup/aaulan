@@ -7,12 +7,8 @@ namespace AAUlan.Models
 {
     public partial class Pizza
     {
-        public string Name { get; set; }
-        public string Note { get; set; }
-        public bool Paid 
-        { 
-            get
-        {
-        } set; }
+        public string name { get; set; }
+        public string note { get; set; }
+        public bool paid { get; set; }
     }
 }
