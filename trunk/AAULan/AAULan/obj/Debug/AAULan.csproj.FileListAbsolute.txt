@@ -1,5 +1,0 @@
-C:\Users\Henrik Klarup\Documents\Visual Studio 2010\Projects\AAULan\AAULan\bin\AAULan.dll
-C:\Users\Henrik Klarup\Documents\Visual Studio 2010\Projects\AAULan\AAULan\bin\AAULan.pdb
-C:\Users\Henrik Klarup\Documents\Visual Studio 2010\Projects\AAULan\AAULan\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Henrik Klarup\Documents\Visual Studio 2010\Projects\AAULan\AAULan\obj\Debug\AAULan.dll
-C:\Users\Henrik Klarup\Documents\Visual Studio 2010\Projects\AAULan\AAULan\obj\Debug\AAULan.pdb
