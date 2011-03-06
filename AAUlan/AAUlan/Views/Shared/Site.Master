@@ -9,12 +9,21 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+<table width="80%" cellpadding="0" cellspacing="0" class="main" border="0">
+    <tr>
+        <td>
+            <img src="../../Content/topbar.png" />
+        </td>
+    </tr>
+</table>
+<table width="80%" cellpadding="2" cellspacing="0" class="main" border="0">
+    <tr>
+        <td>
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
         
         </asp:ContentPlaceHolder>
-    </div>
-    </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
