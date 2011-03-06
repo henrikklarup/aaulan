@@ -84,22 +84,6 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pizza> Pizza
-        {
-            get
-            {
-                if ((_Pizza == null))
-                {
-                    _Pizza = base.CreateObjectSet<Pizza>("Pizza");
-                }
-                return _Pizza;
-            }
-        }
-        private ObjectSet<Pizza> _Pizza;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<User> User
         {
             get
@@ -112,6 +96,22 @@ namespace AAUlan.Models
             }
         }
         private ObjectSet<User> _User;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Pizza> Pizza
+        {
+            get
+            {
+                if ((_Pizza == null))
+                {
+                    _Pizza = base.CreateObjectSet<Pizza>("Pizza");
+                }
+                return _Pizza;
+            }
+        }
+        private ObjectSet<Pizza> _Pizza;
 
         #endregion
         #region AddTo Methods
@@ -125,19 +125,19 @@ namespace AAUlan.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Pizza EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPizza(Pizza pizza)
-        {
-            base.AddObject("Pizza", pizza);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the User EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUser(User user)
         {
             base.AddObject("User", user);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Pizza EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPizza(Pizza pizza)
+        {
+            base.AddObject("Pizza", pizza);
         }
 
         #endregion
@@ -219,12 +219,14 @@ namespace AAUlan.Models
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="paid">Initial value of the Paid property.</param>
         /// <param name="number">Initial value of the Number property.</param>
-        public static Pizza CreatePizza(global::System.String name, global::System.Boolean paid, global::System.Int32 number)
+        /// <param name="id">Initial value of the ID property.</param>
+        public static Pizza CreatePizza(global::System.String name, global::System.Boolean paid, global::System.Int32 number, global::System.Int32 id)
         {
             Pizza pizza = new Pizza();
             pizza.Name = name;
             pizza.Paid = paid;
             pizza.Number = number;
+            pizza.ID = id;
             return pizza;
         }
 
@@ -234,7 +236,7 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -244,14 +246,11 @@ namespace AAUlan.Models
             }
             set
             {
-                if (_Name != value)
-                {
-                    OnNameChanging(value);
-                    ReportPropertyChanging("Name");
-                    _Name = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Name");
-                    OnNameChanged();
-                }
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
             }
         }
         private global::System.String _Name;
@@ -261,7 +260,7 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Paid
         {
@@ -271,14 +270,11 @@ namespace AAUlan.Models
             }
             set
             {
-                if (_Paid != value)
-                {
-                    OnPaidChanging(value);
-                    ReportPropertyChanging("Paid");
-                    _Paid = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Paid");
-                    OnPaidChanged();
-                }
+                OnPaidChanging(value);
+                ReportPropertyChanging("Paid");
+                _Paid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Paid");
+                OnPaidChanged();
             }
         }
         private global::System.Boolean _Paid;
@@ -312,7 +308,7 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Number
         {
@@ -322,19 +318,43 @@ namespace AAUlan.Models
             }
             set
             {
-                if (_Number != value)
-                {
-                    OnNumberChanging(value);
-                    ReportPropertyChanging("Number");
-                    _Number = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Number");
-                    OnNumberChanged();
-                }
+                OnNumberChanging(value);
+                ReportPropertyChanging("Number");
+                _Number = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Number");
+                OnNumberChanged();
             }
         }
         private global::System.Int32 _Number;
         partial void OnNumberChanging(global::System.Int32 value);
         partial void OnNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
 
         #endregion
     
