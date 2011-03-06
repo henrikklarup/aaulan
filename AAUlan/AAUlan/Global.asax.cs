@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
+using System.Security.Principal;
 
 namespace AAUlan
 {
@@ -29,6 +31,25 @@ namespace AAUlan
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_AuthenticateRequest(Object sender, EventArgs e)
+        {
+            //Fires upon attempting to authenticate the user
+            if (!(HttpContext.Current.User == null))
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    if (HttpContext.Current.User.Identity.GetType() == typeof(FormsIdentity))
+                    {
+                        FormsIdentity fi = (FormsIdentity)HttpContext.Current.User.Identity;
+                        FormsAuthenticationTicket fat = fi.Ticket;
+
+                        String[] astrRoles = fat.UserData.Trim().Split('|');
+                        HttpContext.Current.User = new GenericPrincipal(fi, astrRoles);
+                    }
+                }
+            }
         }
     }
 }
