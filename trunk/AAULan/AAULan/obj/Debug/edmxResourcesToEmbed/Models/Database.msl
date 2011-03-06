@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AAULanDatabaseModelStoreContainer" CdmEntityContainer="AAULanDatabaseEntities">
+    <EntitySetMapping Name="Deadline">
+      <EntityTypeMapping TypeName="AAULanDatabaseModel.Deadline">
+        <MappingFragment StoreEntitySet="Deadline">
+          <ScalarProperty Name="Deadline1" ColumnName="Deadline" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pizza">
+      <EntityTypeMapping TypeName="AAULanDatabaseModel.Pizza">
+        <MappingFragment StoreEntitySet="Pizza">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="AAULanDatabaseModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
