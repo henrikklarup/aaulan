@@ -20,11 +20,22 @@
     </tr>
 </table>
 <table width="80%" align="center">
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    <tr>
+        <td>
+            <li>MENU ITEM 1</li>
+            <li>MENU ITEM 2</li>
+            <li>MENU ITEM 3</li>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
+            </asp:ContentPlaceHolder>
+        </div>
+        </td>
+    </tr>
 </table>
 </body>
 </html>
