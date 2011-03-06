@@ -220,13 +220,15 @@ namespace AAUlan.Models
         /// <param name="paid">Initial value of the Paid property.</param>
         /// <param name="number">Initial value of the Number property.</param>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Pizza CreatePizza(global::System.String name, global::System.Boolean paid, global::System.Int32 number, global::System.Int32 id)
+        /// <param name="lANID">Initial value of the LANID property.</param>
+        public static Pizza CreatePizza(global::System.String name, global::System.Boolean paid, global::System.Int32 number, global::System.Int32 id, global::System.Int32 lANID)
         {
             Pizza pizza = new Pizza();
             pizza.Name = name;
             pizza.Paid = paid;
             pizza.Number = number;
             pizza.ID = id;
+            pizza.LANID = lANID;
             return pizza;
         }
 
@@ -355,6 +357,30 @@ namespace AAUlan.Models
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LANID
+        {
+            get
+            {
+                return _LANID;
+            }
+            set
+            {
+                OnLANIDChanging(value);
+                ReportPropertyChanging("LANID");
+                _LANID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LANID");
+                OnLANIDChanged();
+            }
+        }
+        private global::System.Int32 _LANID;
+        partial void OnLANIDChanging(global::System.Int32 value);
+        partial void OnLANIDChanged();
 
         #endregion
     
