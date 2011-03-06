@@ -27,11 +27,14 @@
 <table width="80%" align="center">
     <tr>
         <td>
-        <div id="topmenu">
-            <li>MENU ITEM 1</li>
-            <li>MENU ITEM 2</li>
-            <li>MENU ITEM 3</li>
-        </div>
+            <div id="menucontainer">
+            
+                <ul id="menu">              
+                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                </ul>
+            
+            </div>
         </td>
     </tr>
     <tr>
