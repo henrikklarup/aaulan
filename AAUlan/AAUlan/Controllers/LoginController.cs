@@ -61,8 +61,6 @@ namespace AAUlan.Controllers
             }
 
 
-            //Return to request page
-            return Redirect(FormsAuthentication.GetRedirectUrl(user.Username, false));
 
 
             //Never Used   //
