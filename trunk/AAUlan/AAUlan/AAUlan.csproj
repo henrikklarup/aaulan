@@ -79,6 +79,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AAUlanDatabase.mdf" />
+    <Content Include="App_Data\AAUlanDatabase_log.LDF">
+      <DependentUpon>AAUlanDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\topbar.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
