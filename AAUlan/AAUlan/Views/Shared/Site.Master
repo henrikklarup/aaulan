@@ -27,9 +27,11 @@
 <table width="80%" align="center">
     <tr>
         <td>
+        <div id="topmenu">
             <li>MENU ITEM 1</li>
             <li>MENU ITEM 2</li>
             <li>MENU ITEM 3</li>
+        </div>
         </td>
     </tr>
     <tr>
