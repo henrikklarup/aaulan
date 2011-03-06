@@ -2,9 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
-    INDEX!!
-    <%: Html.ActionLink("Index","Index","Order") %>
+    <h2>Status</h2>
+    <%using (Html.BeginForm())
+      { %>
+    <p>
+    <%: ViewData["Message"]%>
+    </p>
+    <%} %>
 
 </asp:Content>
 
