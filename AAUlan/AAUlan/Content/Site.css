@@ -7,7 +7,14 @@ body
         margin-right:0;
         margin-top:0;
     }
-
+    
+#login
+{
+    position:absolute;
+    right:15px;
+    top:15px;
+}
+    
 /* Text Styles */
 
 h1, h2, h3, p
@@ -18,12 +25,34 @@ h1, h2, h3, p
 
 h1
 {
-    font-size:larger;
+    font-size:x-large
 }
 
 h2
 {
-    font-size:large;
+    font-size:larger;
+}
+
+h3
+{
+    font-size:larger
+}
+
+ a:visited, a:active, a:link
+ {
+     color:#ffffff;
+     text-decoration:none;
+ }
+ 
+ a:hover
+ {
+     color:#c5c5c5;
+     text-decoration:none;
+ }
+
+a:visited, a:active, a:link, a:hover
+{
+    font-family:Tahoma;
 }
 
 
@@ -60,11 +89,9 @@ h2
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #5C87B2 solid;
     padding: 0 0 2px;
-    position: relative;
     margin: 0;
-    text-align: right;
+    text-align: left;
 }
 
 ul#menu li
@@ -79,7 +106,7 @@ ul#menu li#greeting
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    color: #fff;
+    color: #ffffff;
 }
 
 ul#menu li a
@@ -89,13 +116,15 @@ ul#menu li a
     text-decoration: none;
     line-height: 2.8em;
     background-color: #e8eef4;
-    color: #034af3;
+    color: #222222;
+    font-size:1;
 }
 
 ul#menu li a:hover
 {
     background-color: #fff;
     text-decoration: none;
+    font-size:1;
 }
 
 ul#menu li a:active
