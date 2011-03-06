@@ -1,3 +1,22 @@
+/* Body Style */
+
+body
+    {
+        background-color: #000000;
+    }
+
+/* Text Styles */
+
+h1
+{
+    color:#ffffff;
+    font-size:large;
+}
+
+p
+{
+    color:#ffffff;
+}
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error

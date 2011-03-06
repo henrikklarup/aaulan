@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
         <asp:ContentPlaceHolder ID="head" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -12,10 +12,19 @@
     <title>AAULAN - <asp:ContentPlaceHolder ID="Title" runat="server" /></title>
 </head>
 <body>
+<table width="80%" cellpadding="0" cellspacing="0" border="0" align="center">
+    <tr>
+        <td align="center">
+            <img src="../../Content/topbar.png" />
+        </td>
+    </tr>
+</table>
+<table width="80%" align="center">
     <div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
+</table>
 </body>
 </html>
