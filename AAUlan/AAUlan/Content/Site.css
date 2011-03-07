@@ -1,7 +1,7 @@
 /* Body Style */
 body
     {
-        background-color: #000000;
+        background-color: #539948;
         margin-bottom:0;
         margin-left:0;
         margin-right:0;
@@ -79,6 +79,11 @@ table.userManagement td
     border-width:thin;
     border-collapse:collapse;
 }
+
+#fullheight
+    {
+        height:100%
+     }
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
