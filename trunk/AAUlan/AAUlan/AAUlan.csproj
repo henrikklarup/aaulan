@@ -93,6 +93,7 @@
       <DependentUpon>AAUlanDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\aaulanlogo.png" />
+    <Content Include="Content\Studentersamfundet-hvid.png" />
     <Content Include="Content\topbar.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

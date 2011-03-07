@@ -16,6 +16,14 @@ body
     top:15px;
 }
 
+#slogo
+{
+    position:absolute;
+    left:50px;
+    top:10px;
+    z-index:-1;
+}
+
 .topbanner, .main
 {
     margin:auto;
@@ -31,6 +39,10 @@ body
 
 .main
 {
+    /* for IE */
+    filter:alpha(opacity=90);
+    /* CSS3 standard */
+    opacity:0.9;
     background-color:#73b968;
 }
 

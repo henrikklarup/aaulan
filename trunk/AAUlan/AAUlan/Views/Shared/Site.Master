@@ -20,6 +20,10 @@
     <% Html.RenderPartial("LoginBox", emptyUser); %>
 </div>
 
+<div class="slogo" id="slogo">
+    <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="300" style="opacity:0.6;filter:alpha(opacity=60)" />
+</div>
+
 <div class="topbanner">
     <img alt="LOGO" height="200" src="../../Content/aaulanlogo.png" />
 </div>
