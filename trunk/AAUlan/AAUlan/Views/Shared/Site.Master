@@ -11,44 +11,32 @@
 
     <title>AAULAN - <asp:ContentPlaceHolder ID="Title" runat="server" /></title>
 </head>
+
 <body>
 <div id="login">
     <!-- LOGIN HER! -->
     <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
     <% Html.RenderPartial("LoginBox", emptyUser); %>
 </div>
-<table width="80%" cellpadding="0" cellspacing="0" border="0" align="center">
-    <tr>
-        <td align="center">
-            <img alt="AAULANLOGO" src="../../Content/topbar.png" />
-        </td>
-    </tr>
-</table>
-<table width="80%" align="center">
-    <tr>
-        <td>
-            <div id="menucontainer">
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
-                    <%if (Context.User.Identity.IsAuthenticated)
-                      {%>
-                        <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
-                    <%} %>
-                </ul>
-            
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+<div id="topbanner">
+    <img alt="LOGO" height="200" src="../../Content/aaulanlogo.png" />
+</div>
+
+<div id="menucontainer">
+    <ul id="menu">              
+        <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+        <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
+        <%if (Context.User.Identity.IsAuthenticated)
+            {%>
+            <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
+        <%} %>
+    </ul>   
+</div>
+<div id="maincontent">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-            </asp:ContentPlaceHolder>
-        </div>
-        </td>
-    </tr>
-</table>
+    </asp:ContentPlaceHolder>
+</div>
 </body>
 </html>
