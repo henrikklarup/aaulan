@@ -1,12 +1,13 @@
-/* Body Style */
+/************************** Body Style ********************************************/
+
 body
-    {
-        background-color: #539948;
-        margin-bottom:0;
-        margin-left:0;
-        margin-right:0;
-        margin-top:0;
-    }
+{
+    background-color: #539948;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+}
     
 #login
 {
@@ -14,12 +15,50 @@ body
     right:15px;
     top:15px;
 }
-    
-/* Text Styles */
+
+.topbanner, .main
+{
+    margin:auto;
+    width:70%;
+    padding: 10px 20px 5px 20px;
+}
+
+.menucontainer
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.main
+{
+    background-color:#73b968;
+}
+
+.maincontent, .menucontainer
+{
+    margin-bottom:10px;
+    padding:4px 5px 2px 5px;
+    background-color:#93d988;
+}
+
+.login
+{
+    background-color:#73b968;
+    padding:4px 5px 2px 5px;
+}
+
+.footer
+{
+    margin:0 0 0 0;
+    width:100%;
+    background-color:#93d988;
+}
+
+/************************** Text Styles ********************************************/
 
 h1, h2, h3, p
 {
-    color:#ffffff;
+    color:#000000;
     font-family:Tahoma;
 }
 
@@ -38,15 +77,21 @@ h3
     font-size:larger;
 }
 
+f
+{
+    font-size:x-small;
+    color:#000000
+}
+
  a:visited, a:active, a:link
  {
-     color:#ffffff;
+     color:#2f803f;
      text-decoration:none;
  }
  
  a:hover
  {
-     color:#c5c5c5;
+     color:#2faa3f;
      text-decoration:none;
  }
 
@@ -140,7 +185,7 @@ ul#menu li#greeting
 
 ul#menu li a
 {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;

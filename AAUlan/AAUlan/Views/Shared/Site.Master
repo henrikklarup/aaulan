@@ -13,30 +13,39 @@
 </head>
 
 <body>
-<div id="login">
+
+<div class ="login" id="login">
     <!-- LOGIN HER! -->
     <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
     <% Html.RenderPartial("LoginBox", emptyUser); %>
 </div>
 
-<div id="topbanner">
+<div class="topbanner">
     <img alt="LOGO" height="200" src="../../Content/aaulanlogo.png" />
 </div>
 
-<div id="menucontainer">
-    <ul id="menu">              
-        <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-        <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
-        <%if (Context.User.Identity.IsAuthenticated)
-            {%>
-            <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
-        <%} %>
-    </ul>   
-</div>
-<div id="maincontent">
-    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+<div class="main">
+    <div class="menucontainer">
+        <ul id="menu">              
+            <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+            <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
+            <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
+            <%if (Context.User.Identity.IsAuthenticated)
+                {%>
+                <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
+            <%} %>
+        </ul>
+    </div>
+
+    <div class="maincontent">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-    </asp:ContentPlaceHolder>
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <div id="footer" class="footer">
+    <center><f>Copyright bla bla bla</f></center>
+    </div>
 </div>
 </body>
 </html>
