@@ -10,14 +10,18 @@
         { %>
             <%using (Html.BeginForm("Logout", "Login"))
             { %>
-            <div class="loginboxline1>
-            <%: Html.Label("Username: ")%>
-            <%: Html.Label(Context.User.Identity.Name)%>
+            <div class="loginbox">
+                <div>
+                <%: Html.Label("Username: ")%>
+                <%: Html.Label(Context.User.Identity.Name)%>
+                </div>
+                <div>
+                <%: Html.Label("Role: ")%>
+                <%: Html.Label(productRepo.GetUserRoleFromUsername(Context.User.Identity.Name))%>
+                </div>
+                <div>
+                <input type="submit" name="submitbutton1" id="Submit1" value="Logout" />
+                </div>
             </div>
-            <div class="loginboxline2">
-            <%: Html.Label("Role: ")%>
-            <%: Html.Label(productRepo.GetUserRoleFromUsername(Context.User.Identity.Name))%>
-            </div>
-            <input type="submit" name="submitbutton1" id="Submit1" value="Logout" />
             <%} %>
         <%} %>

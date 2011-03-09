@@ -34,6 +34,25 @@ body
     color:#888888;
 }
 
+#login, a, a:visited, a:hover, a:active
+{
+    /* for IE */
+    filter:alpha(opacity=85);
+    /* CSS3 standard */
+    opacity:0.85;
+}
+
+.loginbox
+{
+    /* for IE */
+    filter:alpha(opacity=85);
+    /* CSS3 standard */
+    opacity:0.85;
+    background-color:#73b968;
+    width:auto;
+    padding: 10px;
+}
+
 #slogo
 {
     position:absolute;
