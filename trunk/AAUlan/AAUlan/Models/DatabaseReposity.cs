@@ -189,6 +189,7 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region UpdateOrders
         public void UpdateOrders(List<Mad> orders)
         {
             foreach (Mad i in orders)
@@ -198,6 +199,7 @@ namespace AAUlan.Models
                 Save();
             }
         }
+        #endregion
 
         #region User
         #region GetAllUsers
