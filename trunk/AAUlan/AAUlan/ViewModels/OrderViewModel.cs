@@ -9,5 +9,6 @@ namespace AAUlan.ViewModels
     public class OrderViewModel
     {
         public Mad mad { get; set; }
+        public List<Mad> Orders { get; set; }
     }
 }
