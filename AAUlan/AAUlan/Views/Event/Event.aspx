@@ -9,7 +9,6 @@
 
         <fieldset>
             <legend>Fields</legend>
-            
             <div class="editor-label">
                 <%: Html.Label("Start Time (ie 1999-09-20 21:34 PM): ") %>
             </div>

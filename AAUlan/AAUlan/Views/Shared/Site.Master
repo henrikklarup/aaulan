@@ -14,6 +14,8 @@
 </head>
 
 <body>
+<% AAUlan.Models.DatabaseReposity repo = new AAUlan.Models.DatabaseReposity(); %>
+<% AAUlan.Models.Event pizzatime = repo.GetCurrentPizzaEvent(); %>
 
 <div id="login" class="login">
 <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
@@ -34,6 +36,7 @@
             <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
             <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
             <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
+            <li><a href="http://challonge.com" target="_blank">Turneringer</a></li>
             <%if (Context.User.Identity.IsAuthenticated)
                 {%>
                 <li><%: Html.ActionLink("Users","RoleAssignment", "Admin") %></li>
@@ -99,7 +102,7 @@
                     }
                 };
             } ();
-            javascript_countdown.init(99999);
+            javascript_countdown.init(<%: pizzatime.timeTillNextPizza() %>);
     </script>
     </div>
 

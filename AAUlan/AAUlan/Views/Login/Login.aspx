@@ -2,21 +2,34 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Login</h2>
+    <fieldset>
+        <legend>Login</legend>
 
-    <%using (Html.BeginForm("Login", "Login", new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
-      { %>
-      <%= Html.ValidationSummary("Login was unsuccessful. Please correct the errors and try again.")%>
-      <p><%: Html.Label("Username:")%></p>
-      <%: Html.TextBoxFor(model => Model.Username)%>
-      <%: Html.ValidationMessage("Username", "*")%>
-      <br />
-      <p><%: Html.Label("Password: ")%></p>
-      <%: Html.PasswordFor(model => Model.Password)%>   
-      <%: Html.ValidationMessage("Password", "*")%>                 
-      <input type="submit" name="SubmitButton1" id="submit" value="Login" />
-    <%} %>
-    <%: Html.ActionLink("Create User", "Create", "Login")%>
+        <%using (Html.BeginForm("Login", "Login", new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
+          { %>
+          <div>
+          <%= Html.ValidationSummary("Login was unsuccessful.")%>
+          </div>
+          <div class="editor-label">
+          <%: Html.Label("Username:")%>
+          </div>
+          <div class="editor-field">
+          <%: Html.TextBoxFor(model => Model.Username)%>
+          <%: Html.ValidationMessage("Username", "*")%>
+          </div>
+          <div class="editor-label">
+          <%: Html.Label("Password: ")%>
+          </div>
+          <div class="editor-field">
+          <%: Html.PasswordFor(model => Model.Password)%>   
+          <%: Html.ValidationMessage("Password", "*")%>                 
+          </div>
+          <input type="submit" name="SubmitButton1" id="submit" value="Login" />
+        <%} %>
+        <h1>Not yet a user?</h1>
+        <p><%: Html.ActionLink("Create User", "Create", "Login")%></p>
+        
+    </fieldset>
 
 </asp:Content>
 
