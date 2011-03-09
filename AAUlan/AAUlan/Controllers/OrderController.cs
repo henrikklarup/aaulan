@@ -24,6 +24,7 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
+            viewModel.mad.Number = viewModel.mad.NUM;
             viewModel.mad.Paid = false;
             bool accepted = repo.AddOrder(viewModel.mad);
 
