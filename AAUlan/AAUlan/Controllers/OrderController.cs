@@ -15,7 +15,7 @@ namespace AAUlan.Controllers
         //
         // GET: /Order/
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult Index()
         {
             var viewModel = new OrderViewModel();
@@ -23,7 +23,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult Index(OrderViewModel viewModel)
         {
             viewModel.mad.Paid = false;
@@ -36,7 +36,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult Status(bool status)
         {
             var viewModel = new Mad();
@@ -51,7 +51,7 @@ namespace AAUlan.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrders()
         {
             var viewModel = new OrderViewModel()
@@ -62,7 +62,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrders(OrderViewModel viewModel)
         {
             repo.UpdateOrders(viewModel.Orders);
@@ -70,7 +70,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrdersWithId(int id)
         {
             var viewModel = repo.GetAllOrdersWithId(id);
