@@ -248,7 +248,7 @@ namespace AAUlan.Models
         public void Promote(string Username)
         {
             User user = GetUserFromUsername(Username);
-            if (user.Role.Trim() == "Bruger")
+            if (user.Role.Trim() == "User")
             {
                 user.Role = "Crew";
             }
