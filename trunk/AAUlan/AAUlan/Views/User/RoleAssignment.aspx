@@ -4,7 +4,7 @@
 
     <h2>RoleAssignment</h2>
 
-        <%using (Html.BeginForm("SearchUsername","User"))
+        <%using (Html.BeginForm("SearchUsername","Admin"))
       { %>
         <%: Html.Label("Search username: ") %>
         <%: Html.TextBox("Username")%>
@@ -25,7 +25,7 @@
         </tr>
         <% foreach (var user in Model.users)
            { %>
-           <%using (Html.BeginForm("PromoteOrDemote","User")) { %>
+           <%using (Html.BeginForm("PromoteOrDemote","Admin")) { %>
            <tr>
             <td>
                 <p><%: user.Username %></p>

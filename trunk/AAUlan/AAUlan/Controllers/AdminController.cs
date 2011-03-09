@@ -60,7 +60,7 @@ namespace AAUlan.Controllers
                 users = repo.GetUsersByUsername(Username).ToList()
             };
 
-            return View("RoleAssignment", viewModel);
+            return View("../User/RoleAssignment", viewModel);
         }
         #endregion
 
@@ -112,6 +112,31 @@ namespace AAUlan.Controllers
         {
             var viewModel = repo.GetAllEvents();
             return View("../Event/AllEvents", viewModel);
+        }
+        #endregion
+
+        #region Game
+        [HttpGet]
+        public ActionResult CreateGame()
+        {
+            var viewModel = new Games();
+
+            return View("../Game/Game", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult CreateGame(Games viewModel)
+        {
+            repo.AddGame(viewModel);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult AllGames()
+        {
+            var viewModel = repo.GetAllGames();
+            return View("../Game/AllGames", viewModel);
         }
         #endregion
     }

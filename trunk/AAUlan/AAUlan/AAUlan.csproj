@@ -96,15 +96,21 @@
       <DependentUpon>AAUlanDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\aaulanlogo.png" />
+    <Content Include="Content\OrderScript.js" />
     <Content Include="Content\Studentersamfundet-hvid.png" />
     <Content Include="Content\topbar.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Views\Event\AllEvents.aspx" />
     <Content Include="Views\Event\Event.aspx" />
+    <Content Include="Views\Game\AllGames.aspx" />
+    <Content Include="Views\Game\Game.aspx" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Lan\AllLans.aspx" />
     <Content Include="Views\Lan\CreateLan.aspx" />
     <Content Include="Views\Login\Create.aspx" />
     <Content Include="Views\Login\Login.aspx" />
+    <Content Include="Views\Order\AllOrders.aspx" />
     <Content Include="Views\Order\Status.aspx" />
     <Content Include="Views\Order\Index.aspx" />
     <Content Include="Views\Shared\LoginBox.ascx" />
