@@ -22,7 +22,7 @@ namespace AAUlan.Controllers
 
         #region User
         [HttpGet]
-        [Authorize(Roles="Administrator, Moderator")]
+        [Authorize(Roles="Administrator, Crew")]
         public ActionResult RoleAssignment()
         {
             var viewModel = new UserViewModel()
@@ -34,7 +34,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult PromoteOrDemote(string submitButton, string Username)
         {
             switch (submitButton)
@@ -46,7 +46,7 @@ namespace AAUlan.Controllers
                     repo.Demote(Username);
                     return RedirectToAction("RoleAssignment");
                 case "Change":
-                    return RedirectToAction("ModeratorStatus", new { user = repo.GetUserFromUsername(Username) });
+                    return RedirectToAction("CrewStatus", new { user = repo.GetUserFromUsername(Username) });
                 default:
                     break;
             }
@@ -54,7 +54,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult SearchUsername(string Username)
         {
             var viewModel = new UserViewModel()
@@ -69,7 +69,7 @@ namespace AAUlan.Controllers
         #region Lan
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateLan()
         {
             var viewModel = new LanViewModel();
@@ -78,7 +78,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateLan(LanViewModel viewModel)
         {
             repo.AddLan(viewModel.lan);
@@ -87,7 +87,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllLans()
         {
             var viewModel = repo.GetAllLans();
@@ -97,7 +97,7 @@ namespace AAUlan.Controllers
 
         #region Event
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateEvent()
         {
             var viewModel = new Event();
@@ -106,7 +106,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateEvent(Event event1)
         {
             repo.AddEvent(event1);
@@ -115,7 +115,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllEvents()
         {
             var viewModel = repo.GetAllEvents();
@@ -125,7 +125,7 @@ namespace AAUlan.Controllers
 
         #region Game
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateGame()
         {
             var viewModel = new Games();
@@ -134,7 +134,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateGame(Games viewModel)
         {
             repo.AddGame(viewModel);
@@ -143,7 +143,7 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator, Moderator")]
+        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllGames()
         {
             var viewModel = repo.GetAllGames();

@@ -238,9 +238,9 @@ namespace AAUlan.Models
             User user = GetUserFromUsername(Username);
             if (user.Role.Trim() == "Crew")
             {
-                user.Role = "Moderator";
+                user.Role = "Crew";
             }
-            else if (user.Role.Trim() == "Moderator")
+            else if (user.Role.Trim() == "Crew")
             {
                 user.Role = "Administrator";
             }
@@ -254,7 +254,7 @@ namespace AAUlan.Models
             User user = GetUserFromUsername(Username);
             if (user.Role.Trim() == "Administrator")
             {
-                user.Role = "Moderator";
+                user.Role = "Crew";
             }
             else if (user.Role.Trim() == "Crew")
             {
