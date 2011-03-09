@@ -45,5 +45,30 @@ namespace AAUlan.Controllers
 
             return View(viewModel);
         }
+
+
+        [HttpGet]
+        public ActionResult AllOrders()
+        {
+            var viewModel = new OrderViewModel()
+            {
+                Orders = repo.GetAllOrders().ToList()
+            };
+            return View("../Order/AllOrders", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AllOrders(OrderViewModel viewModel)
+        {
+            repo.UpdateOrders(viewModel.Orders);
+            return RedirectToAction("AllOrders");
+        }
+
+        [HttpGet]
+        public ActionResult AllOrdersWithId(int id)
+        {
+            var viewModel = repo.GetAllOrdersWithId(id);
+            return View("../Order/AllOrders", viewModel);
+        }
     }
 }
