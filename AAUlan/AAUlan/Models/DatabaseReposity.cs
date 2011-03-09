@@ -21,7 +21,7 @@ namespace AAUlan.Models
         }
         #endregion
 
-        #region GetCurrentEvent
+        #region GetCurrentPizzaEvent
         public Event GetCurrentPizzaEvent()
         {
             var x = from e in GetAllEvents()
