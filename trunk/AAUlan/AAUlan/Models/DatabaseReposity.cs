@@ -21,7 +21,7 @@ namespace AAUlan.Models
         }
         #endregion
 
-        #region GetCurrentEvent
+        #region GetCurrentLan
         public LAN GetCurrentLan()
         {
             var x = from e in GetAllLans()
@@ -38,10 +38,33 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region GetAllOrders
+        public IQueryable<Mad> GetAllOrders()
+        {
+            return aauEnt.Mad;
+        }
+        #endregion
+
+        #region GetAllOrdersWithId
+        public IQueryable<Mad> GetAllOrdersWithId(int id)
+        {
+            return from e in GetAllOrders()
+                    where e.EVENTID == id
+                    select e;
+        }
+        #endregion
+
         #region GetAllLans
         public IQueryable<LAN> GetAllLans()
         {
             return aauEnt.LAN;
+        }
+        #endregion
+
+        #region GetAllGames
+        public IQueryable<Games> GetAllGames()
+        {
+            return aauEnt.Games;
         }
         #endregion
 
@@ -120,6 +143,27 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region AddGame
+        public bool AddGame(Games game)
+        {
+            //Find last id
+            Games idgame = aauEnt.Games.Where(s => s.ID > 0).OrderByDescending(s => s.ID).FirstOrDefault();
+            if (idgame == null)
+            {
+                game.ID = 1;
+            }
+            else
+            {
+                game.ID = idgame.ID;
+                game.ID++;
+            }
+
+            aauEnt.AddToGames(game);
+            Save();
+            return true;
+        }
+        #endregion
+
         #region AddUser
         /// <summary>
         /// Add user to the database
@@ -134,6 +178,16 @@ namespace AAUlan.Models
             Save();
         }
         #endregion
+
+        public void UpdateOrders(List<Mad> orders)
+        {
+            foreach (Mad i in orders)
+            {
+                Mad m1 = aauEnt.Mad.Where(s => s.ID == (i.ID +1)).FirstOrDefault();
+                m1 = i;
+            }
+            Save();
+        }
 
         #region User
         #region GetAllUsers
