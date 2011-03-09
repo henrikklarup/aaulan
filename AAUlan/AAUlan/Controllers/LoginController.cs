@@ -120,7 +120,7 @@ namespace AAUlan.Controllers
             user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "MD5");
 
             //Set to lower role
-            user.Role = "Administrator";
+            user.Role = "User";
 
             //Add User to database
             repo.AddUser(user);
