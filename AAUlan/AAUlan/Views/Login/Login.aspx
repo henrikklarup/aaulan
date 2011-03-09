@@ -11,7 +11,7 @@
       <%: Html.TextBoxFor(model => Model.Username)%>
       <%: Html.ValidationMessage("Username", "*")%>
       <br />
-      <p>><%: Html.Label("Password: ")%></p>
+      <p><%: Html.Label("Password: ")%></p>
       <%: Html.PasswordFor(model => Model.Password)%>   
       <%: Html.ValidationMessage("Password", "*")%>                 
       <input type="submit" name="SubmitButton1" id="submit" value="Login" />
