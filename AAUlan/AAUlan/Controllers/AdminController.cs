@@ -77,5 +77,21 @@ namespace AAUlan.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult CreateEvent()
+        {
+            var viewModel = new Event();
+
+            return View("../Event/Event");
+        }
+
+        [HttpPost]
+        public ActionResult CreateEvent(Event event1)
+        {
+            repo.AddEvent(event1);
+
+            return View("../Event/Event");
+        }
     }
 }

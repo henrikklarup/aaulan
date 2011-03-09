@@ -37,7 +37,8 @@
             <%if (Context.User.Identity.IsAuthenticated)
                 {%>
                 <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
-                <li><%: Html.ActionLink("Create Lan","CreateLan","Admin") %></li>
+                <li><%: Html.ActionLink("Create Lan", "CreateLan", "Admin") %></li>
+                <li><%: Html.ActionLink("Create Event", "CreateEvent", "Admin")%></li>
             <%} %>
         </ul>
     </div>
