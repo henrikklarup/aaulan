@@ -36,6 +36,7 @@
             </td>
 
             <td>
+            <%if(Context.User.IsInRole("Administrator")) { %>
                 <%if (user.Role.Trim() != "Administrator")
                   { %>
                 <input value="Promote" type="submit" name="submitButton" />
@@ -44,6 +45,10 @@
                   {%>
                 <input value="Demote" type="submit" name="submitButton" />
                 <%} %>
+                <%} %>
+            <%else { %>
+                Only for Adminfags!
+            <%} %>
             </td>
             </tr>
             <%} %>
