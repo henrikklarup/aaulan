@@ -19,7 +19,7 @@
        </div>
 
        <div class="editor-field">
-       <%: Html.TextBoxFor(model => Model.Password) %>
+       <%: Html.PasswordFor(model => Model.Password) %>
        </div>
        <p>
        <input id="submitButton1" name="Submitbutton1" type="submit" />
