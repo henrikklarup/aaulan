@@ -67,15 +67,15 @@ namespace AAUlan.Controllers
         {
             var viewModel = new LanViewModel();
 
-            return View(viewModel);
+            return View("../Lan/CreateLan",viewModel);
         }
 
         [HttpPost]
         public ActionResult CreateLan(LanViewModel viewModel)
         {
+            repo.AddLan(viewModel.lan);
 
-
-            return View(viewModel);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
