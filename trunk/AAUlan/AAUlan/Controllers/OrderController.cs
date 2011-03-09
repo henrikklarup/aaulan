@@ -28,20 +28,22 @@ namespace AAUlan.Controllers
             bool accepted = repo.AddOrder(viewModel.mad);
 
             if (accepted)
-                return View("Status", new { status = true });
+                return RedirectToAction("Status", new { status = true });
             else
-                return View("Status", new { status = false });
+                return RedirectToAction("Status", new { status = false });
         }
 
         [HttpGet]
         public ActionResult Status(bool status)
         {
-            if (status)
-                ViewData["Message"] = "Confirmed";
-            else
-                ViewData["Message"] = "Denied";
+            var viewModel = new Mad();
 
-            return View();
+            if (status)
+                viewModel.x= "Confirmed";
+            else
+                viewModel.x = "Denied";
+
+            return View(viewModel);
         }
     }
 }

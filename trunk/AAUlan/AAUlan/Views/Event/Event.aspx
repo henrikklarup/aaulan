@@ -65,6 +65,14 @@
                 <%: Html.TextAreaFor(model => model.Rules) %>
                 <%: Html.ValidationMessageFor(model => model.Rules) %>
             </div>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.FoodID) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextAreaFor(model => model.FoodID) %>
+                <%: Html.ValidationMessageFor(model => model.FoodID) %>
+            </div>
             
             <p>
                 <input type="submit" value="Create" />
