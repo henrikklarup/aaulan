@@ -11,7 +11,7 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.StartTime) %>
+                <%: Html.Label("Start Time (ie 1999-09-20 21:34 PM): ") %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.StartTime) %>
@@ -35,14 +35,6 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.ID) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.ID) %>
-                <%: Html.ValidationMessageFor(model => model.ID) %>
-            </div>
-            
-            <div class="editor-label">
                 <%: Html.LabelFor(model => model.LANID) %>
             </div>
             <div class="editor-field">
@@ -62,7 +54,7 @@
                 <%: Html.LabelFor(model => model.Description) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Description) %>
+                <%: Html.TextAreaFor(model => model.Description) %>
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
             
@@ -70,16 +62,8 @@
                 <%: Html.LabelFor(model => model.Rules) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Rules) %>
+                <%: Html.TextAreaFor(model => model.Rules) %>
                 <%: Html.ValidationMessageFor(model => model.Rules) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.FoodID) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FoodID) %>
-                <%: Html.ValidationMessageFor(model => model.FoodID) %>
             </div>
             
             <p>
@@ -88,10 +72,6 @@
         </fieldset>
 
     <% } %>
-
-    <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </div>
 
 </asp:Content>
 

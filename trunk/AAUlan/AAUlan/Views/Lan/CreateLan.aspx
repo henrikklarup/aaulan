@@ -5,7 +5,7 @@
     <h2>CreateLan</h2>
     <% using(Html.BeginForm("CreateLan","Admin")) { %>
 
-    <%: Html.Label(@"Start Time (ie 1999-09-01 21:34 PM): ") %>
+    <%: Html.Label("Start Time (ie 1999-09-01 21:34 PM): ") %>
     <br />
     <%: Html.TextBoxFor(model => Model.lan.StartTime) %>
     <br />
