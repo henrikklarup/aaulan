@@ -21,10 +21,27 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region GetCurrentEvent
+        public LAN GetCurrentLan()
+        {
+            var x = from e in GetAllLans()
+                    where e.StartTime < DateTime.Now && e.EndTime > DateTime.Now
+                    select e;
+            return x.FirstOrDefault();
+        }
+        #endregion
+
         #region GetAllEvents
         public IQueryable<Event> GetAllEvents()
         {
             return aauEnt.Event;
+        }
+        #endregion
+
+        #region GetAllLans
+        public IQueryable<LAN> GetAllLans()
+        {
+            return aauEnt.LAN;
         }
         #endregion
 
@@ -45,7 +62,10 @@ namespace AAUlan.Models
             try
             {
                 Event currentEvent = GetCurrentEvent();
-                mad.EVENTID = (int)currentEvent.FoodID;
+                if (currentEvent.FoodID != null)
+                    mad.EVENTID = (int)currentEvent.FoodID;
+                else
+                    return false;
             }
             catch
             {
