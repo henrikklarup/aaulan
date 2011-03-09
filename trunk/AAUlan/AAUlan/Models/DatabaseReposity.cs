@@ -8,7 +8,7 @@ namespace AAUlan.Models
 {
     public class DatabaseReposity
     {
-        AAUlanDatabaseEntities aauEnt = new AAUlanDatabaseEntities();
+        AAULANHOMEPAGEEntities aauEnt = new AAULANHOMEPAGEEntities();
 
         #region AddOrder
         public bool AddOrder(Pizza pizza)
