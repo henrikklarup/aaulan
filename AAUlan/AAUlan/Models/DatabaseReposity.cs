@@ -28,7 +28,6 @@ namespace AAUlan.Models
         }
         #endregion
 
-
         #region AddOrder
         public bool AddOrder(Mad mad)
         {
