@@ -65,6 +65,12 @@ namespace AAUlan.Controllers
                 #endregion
             }
 
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ModelState.AddModelError("Validation","Login information not valid");
 
 

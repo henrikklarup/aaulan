@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+      <script src="<%= Url.Content("~/Scripts/MicrosoftAjax.debug.js") %>" type="text/javascript"></script>
+  <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.debug.js") %>" type="text/javascript"></script>
+  <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.debug.js") %>" type="text/javascript"></script>
+  <% Html.EnableClientValidation();%>
     <script type="text/javascript" language="javascript">
         var javascript_countdown = function () {
             var time_left = 10; //number of seconds for countdown

@@ -12,7 +12,7 @@
     <%: Html.TextBoxFor(model => Model.mad.Note)%>
     <br />
     <p><%: Html.Label("nr: ") %></p>
-    <%: Html.TextBoxFor(model => Model.mad.Number)%>
+    <%: Html.TextBoxFor(model => Model.mad.NUM)%>
     <br />
     <input value="Order pizza" type="submit" />
     <%} %>
