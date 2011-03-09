@@ -15,14 +15,12 @@
           </div>
           <div class="editor-field">
           <%: Html.TextBoxFor(model => Model.Username)%>
-          <%: Html.ValidationMessage("Username", "*")%>
           </div>
           <div class="editor-label">
           <%: Html.Label("Password: ")%>
           </div>
           <div class="editor-field">
-          <%: Html.PasswordFor(model => Model.Password)%>   
-          <%: Html.ValidationMessage("Password", "*")%>                 
+          <%: Html.PasswordFor(model => Model.Password)%>                 
           </div>
           <input type="submit" name="SubmitButton1" id="submit" value="Login" />
         <%} %>
