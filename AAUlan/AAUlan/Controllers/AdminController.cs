@@ -45,8 +45,6 @@ namespace AAUlan.Controllers
                 case "Demote":
                     repo.Demote(Username);
                     return RedirectToAction("RoleAssignment");
-                case "Change":
-                    return RedirectToAction("CrewStatus", new { user = repo.GetUserFromUsername(Username) });
                 default:
                     break;
             }
