@@ -31,6 +31,27 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region AddLan
+        public bool AddLan(LAN lan)
+        {
+            //Find last id
+            LAN idlan = aauEnt.LAN.Where(s => s.ID > 0).OrderByDescending(s => s.ID).FirstOrDefault();
+            if (idlan == null)
+            {
+                lan.ID = 1;
+            }
+            else
+            {
+                lan.ID = idlan.ID;
+                lan.ID++;
+            }
+
+            aauEnt.AddToLAN(lan);
+            Save();
+            return true;
+        }
+        #endregion
+
         #region AddUser
         /// <summary>
         /// Add user to the database
