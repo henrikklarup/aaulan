@@ -14,7 +14,17 @@ namespace AAUlan.Models
         #region GetCurrentEvent
         public Event GetCurrentEvent()
         {
+            var x = from e in GetAllEvents()
+                   where e.StartTime < DateTime.Now && e.EndTime > DateTime.Now
+                   select e;
+            return x.FirstOrDefault();
+        }
+        #endregion
 
+        #region GetAllEvents
+        public IQueryable<Event> GetAllEvents()
+        {
+            return aauEnt.Event;
         }
         #endregion
 
@@ -32,6 +42,15 @@ namespace AAUlan.Models
             {
                 mad.ID = idmad.ID;
                 mad.ID++;
+            }
+            try
+            {
+                Event currentEvent = GetCurrentEvent();
+                mad.EVENTID = (int)currentEvent.FoodID;
+            }
+            catch
+            {
+                return false;
             }
 
             aauEnt.AddToMad(mad);
