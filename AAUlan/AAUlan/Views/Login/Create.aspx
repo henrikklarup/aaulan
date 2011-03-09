@@ -2,23 +2,35 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Create</h2>
+    <fieldset>
+        <legend>Create User</legend>
         <% using (Html.BeginForm())
        { %>
+       <div class="editor-label">
+       <%: Html.Label("Username: ") %>
+       </div>
 
-       <p><%: Html.Label("Username: ") %> </p>
+       <div class="editor-field">
        <%: Html.TextBoxFor(model => Model.Username) %>
-       <br />
-       <p><%: Html.Label("Password: ") %></p>
-       <%: Html.TextBoxFor(model => Model.Password) %>
-       <br />
-       <input id="submitButton1" name="Submitbutton1" type="submit" />
-    <%} %>
+       </div>
 
+       <div class="editor-label">
+       <%: Html.Label("Password: ") %>
+       </div>
+
+       <div class="editor-field">
+       <%: Html.TextBoxFor(model => Model.Password) %>
+       </div>
+       <p>
+       <input id="submitButton1" name="Submitbutton1" type="submit" />
+       </p>
+    <%} %>
+    </fieldset>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
+Create User
 </asp:Content>
