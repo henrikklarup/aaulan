@@ -6,13 +6,13 @@
     <%using (Html.BeginForm("Index", "Order"))
       { %>
     <p><%: Html.Label("Navn: ") %></p>
-    <%: Html.TextBoxFor(model => Model.pizza.Name)%>
+    <%: Html.TextBoxFor(model => Model.mad.Name)%>
     <br />
     <p><%: Html.Label("Note: ") %></p>
-    <%: Html.TextBoxFor(model => Model.pizza.Note)%>
+    <%: Html.TextBoxFor(model => Model.mad.Note)%>
     <br />
-    <p><%: Html.Label("Pizza nr: ") %></p>
-    <%: Html.TextBoxFor(model => Model.pizza.Number)%>
+    <p><%: Html.Label("nr: ") %></p>
+    <%: Html.TextBoxFor(model => Model.mad.Number)%>
     <br />
     <input value="Order pizza" type="submit" />
     <%} %>
