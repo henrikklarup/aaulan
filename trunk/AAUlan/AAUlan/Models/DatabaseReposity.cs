@@ -41,6 +41,16 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region GetAllFutureEvents
+        public IQueryable<Event> GetAllFutureEvents(int lanID)
+        {
+
+            var x = aauEnt.Event.Where(s => s.LANID == lanID && s.EndTime >= DateTime.Now);
+
+            return x;
+        }
+        #endregion
+
         #region GetAllEvents
         public IQueryable<Event> GetAllEvents()
         {
