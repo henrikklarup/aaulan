@@ -36,6 +36,11 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
+            if (user.Username == null || user.Password == null)
+            {
+                ModelState.AddModelError("Validation", "Login information not valid");
+                return View();
+            }
             //Encrypt password to MD5
             string epas = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "MD5");
 
@@ -60,12 +65,11 @@ namespace AAUlan.Controllers
                 #endregion
             }
 
-
+            ModelState.AddModelError("Validation","Login information not valid");
 
 
             //Never Used   //
             //Return /Home/Index
-            Response.Redirect("/Home", true);
             return View();
             //-------------//
         }
