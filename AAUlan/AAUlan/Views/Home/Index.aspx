@@ -1,10 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<AAUlan.ViewModels.EventViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Index</h2>
-    <p>INDEX!!</p>
-    <%: Html.ActionLink("Index","Index","Order") %>
+
+    <%foreach (var i in Model.events)
+      {%>
+    <fieldset>
+        <legend><%:i.Name %></legend>
+        <%: "Start Time: " + i.StartTime.ToString() %>
+        <br />
+        <%: "End Time: " + i.EndTime.ToString() %>
+        <br />
+        <%: "Game: " + i.Games.Description.ToString() %>
+        <br />
+        <%: "Description: " + i.Description.ToString() %>
+        <br />
+        <%: "Rules: " + i.Rules.ToString() %>
+    </fieldset>
+    <%} %>
 
 </asp:Content>
 
