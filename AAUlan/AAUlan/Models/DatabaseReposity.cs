@@ -193,7 +193,7 @@ namespace AAUlan.Models
         {
             foreach (Mad i in orders)
             {
-                Mad m1 = aauEnt.Mad.Where(s => s.ID == (i.ID +1)).FirstOrDefault();
+                Mad m1 = aauEnt.Mad.Where(s => s.ID == (i.ID)).FirstOrDefault();
                 m1.Paid = i.Paid;
                 Save();
             }

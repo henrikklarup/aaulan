@@ -37,7 +37,7 @@
         <tr>
             <td>
                 <%: Model.Orders[i].Name%>
-                <% Html.HiddenFor(model => Model.Orders[i].ID); %>
+                <%: Html.HiddenFor(model => Model.Orders[i].ID) %>
             </td>
             <td>
                 <%: Model.Orders[i].Note%>
