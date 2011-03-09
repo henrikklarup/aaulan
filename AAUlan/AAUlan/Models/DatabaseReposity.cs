@@ -15,8 +15,18 @@ namespace AAUlan.Models
         public Event GetCurrentEvent()
         {
             var x = from e in GetAllEvents()
-                   where e.StartTime < DateTime.Now && e.EndTime > DateTime.Now
+                   where e.StartTime < DateTime.Now && e.EndTime > DateTime.Now && e.FoodID == null
                    select e;
+            return x.FirstOrDefault();
+        }
+        #endregion
+
+        #region GetCurrentEvent
+        public Event GetCurrentPizzaEvent()
+        {
+            var x = from e in GetAllEvents()
+                    where e.StartTime < DateTime.Now && e.EndTime > DateTime.Now && e.FoodID != null
+                    select e;
             return x.FirstOrDefault();
         }
         #endregion
