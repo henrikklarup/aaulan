@@ -63,7 +63,7 @@
         
     </asp:ContentPlaceHolder>
 
-    <title>AAULAN - <asp:ContentPlaceHolder ID="Title" runat="server" /></title>
+    <title>AAULAN <!--<asp:ContentPlaceHolder ID="Title" runat="server" />--></title>
 </head>
 
 <body>
