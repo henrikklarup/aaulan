@@ -2,33 +2,36 @@
 
 body
 {
-    background-color: #539948;
+    background-color: #337928;
     margin-bottom:0;
     margin-left:0;
     margin-right:0;
     margin-top:0;
 }
-    
-#login
-{
-    position:absolute;
-    right:15px;
-    top:15px;
-}
 
 #slogo
 {
     position:absolute;
-    left:50px;
-    top:10px;
+    left:30px;
+    top:20px;
     z-index:-1;
+}
+
+#javascript_countdown_time
+{
+    color:#ff0000;
+    font-size:35px;
+    font-family:Comic Sans MS;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
 }
 
 .topbanner, .main
 {
     margin:auto;
     width:70%;
-    padding: 10px 20px 5px 20px;
+    padding: 10px 10px 10px 10px;
 }
 
 .menucontainer
@@ -40,9 +43,9 @@ body
 .main
 {
     /* for IE */
-    filter:alpha(opacity=90);
+    filter:alpha(opacity=85);
     /* CSS3 standard */
-    opacity:0.9;
+    opacity:0.85;
     background-color:#73b968;
 }
 
@@ -68,7 +71,7 @@ body
 
 /************************** Text Styles ********************************************/
 
-h1, h2, h3, p
+h1, h2, h3, p, f
 {
     color:#000000;
     font-family:Tahoma;
@@ -92,7 +95,18 @@ h3
 f
 {
     font-size:x-small;
-    color:#000000
+}
+
+p
+{
+    font-size:medium;
+}
+
+c
+{
+    font-family:Comic Sans MS;
+    font-size:400%;
+    color:#ff0000;
 }
 
  a:visited, a:active, a:link
@@ -177,7 +191,7 @@ ul#menu
 {
     padding: 0 0 2px;
     margin: 0;
-    text-align: left;
+    /*text-align: left;*/
 }
 
 ul#menu li
@@ -186,18 +200,14 @@ ul#menu li
     list-style: none;
 }
 
-ul#menu li#greeting
+ul#menu li#login
 {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #ffffff;
+    text-align:right;
 }
 
 ul#menu li a
 {
-    padding: 10px 15px;
+    padding: 6px 17px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;

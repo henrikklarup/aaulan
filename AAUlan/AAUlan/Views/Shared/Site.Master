@@ -5,23 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-        <asp:ContentPlaceHolder ID="head" runat="server">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
         
-        </asp:ContentPlaceHolder>
+    </asp:ContentPlaceHolder>
 
     <title>AAULAN - <asp:ContentPlaceHolder ID="Title" runat="server" /></title>
 </head>
 
 <body>
 
-<div class ="login" id="login">
-    <!-- LOGIN HER! -->
-    <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
-    <% Html.RenderPartial("LoginBox", emptyUser); %>
-</div>
-
 <div class="slogo" id="slogo">
-    <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="300" style="opacity:0.6;filter:alpha(opacity=60)" />
+    <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="300" style="opacity:0.3;filter:alpha(opacity=30)" />
 </div>
 
 <div class="topbanner">
@@ -38,7 +33,67 @@
                 {%>
                 <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
             <%} %>
+            <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
+            <li id="login"> <% Html.RenderPartial("LoginBox", emptyUser); %></li>
         </ul>
+    </div>
+
+    <div id="javascript_countdown_time" class="maincontent">
+        <script type="text/javascript">
+            var javascript_countdown = function () {
+                var time_left = 10; //number of seconds for countdown
+                var keep_counting = 1;
+                var no_time_left_message = 'No time left for JavaScript countdown!';
+                function countdown() {
+                    if (time_left < 2) {
+                        keep_counting = 0;
+                    }
+                    time_left = time_left - 1;
+                }
+                function add_leading_zero(n) {
+                    if (n.toString().length < 2) {
+                        return '0' + n;
+                    } else {
+                        return n;
+                    }
+                }
+                function format_output() {
+                    var hours, minutes, seconds;
+                    seconds = time_left % 60;
+                    minutes = Math.floor(time_left / 60) % 60;
+                    hours = Math.floor(time_left / 3600);
+                    seconds = add_leading_zero(seconds);
+                    minutes = add_leading_zero(minutes);
+                    hours = add_leading_zero(hours);
+                    return 'Bestil Pizza inden: ' + hours + ':' + minutes + ':' + seconds;
+                }
+                function show_time_left() {
+                    document.getElementById('javascript_countdown_time').innerHTML = format_output(); //time_left;
+                }
+                function no_time_left() {
+                    document.getElementById('javascript_countdown_time').innerHTML = no_time_left_message;
+                }
+                return {
+                    count: function () {
+                        countdown();
+                        show_time_left();
+                    },
+                    timer: function () {
+                        javascript_countdown.count();
+                        if (keep_counting) {
+                            setTimeout("javascript_countdown.timer();", 1000);
+                        } else {
+                            no_time_left();
+                        }
+                    },
+                    init: function (n) {
+                        time_left = n;
+                        javascript_countdown.timer();
+                    }
+                };
+            } ();
+            javascript_countdown.init(999999);
+    </script>
     </div>
 
     <div class="maincontent">
@@ -48,7 +103,7 @@
     </div>
 
     <div id="footer" class="footer">
-    <center><f>Copyright bla bla bla</f></center>
+    <center><f>© Copyright Studentersamfundet 2011</f></center>
     </div>
 </div>
 </body>
