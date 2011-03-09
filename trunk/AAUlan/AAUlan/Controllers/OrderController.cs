@@ -24,8 +24,8 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
-            viewModel.pizza.Paid = false;
-            bool accepted = repo.AddOrder(viewModel.pizza);
+            viewModel.mad.Paid = false;
+            bool accepted = repo.AddOrder(viewModel.mad);
 
             if (accepted)
                 return View("Status", new { status = true });
