@@ -94,7 +94,7 @@ namespace AAUlan.Models
             }
             try
             {
-                Event currentEvent = GetCurrentEvent();
+                Event currentEvent = GetCurrentPizzaEvent();
                 if (currentEvent.FoodID != null)
                     mad.EVENTID = (int)currentEvent.FoodID;
                 else
