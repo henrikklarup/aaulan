@@ -18,4 +18,3 @@
             <input type="submit" name="submitbutton1" id="Submit1" value="Logout" />
             <%} %>
         <%} %>
-
