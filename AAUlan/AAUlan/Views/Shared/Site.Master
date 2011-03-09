@@ -15,6 +15,11 @@
 
 <body>
 
+<div id="login" class="login">
+<% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
+[ <% Html.RenderPartial("LoginBox", emptyUser); %> ]
+</div>
+
 <div class="slogo" id="slogo">
     <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="300" style="opacity:0.3;filter:alpha(opacity=30)" />
 </div>
@@ -34,8 +39,6 @@
                 <li><%: Html.ActionLink("Role Assignment","RoleAssignment", "Admin") %></li>
                 <li><%: Html.ActionLink("Create Lan","CreateLan","Admin") %></li>
             <%} %>
-            <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
-            <li id="login"> <% Html.RenderPartial("LoginBox", emptyUser); %></li>
         </ul>
     </div>
 
