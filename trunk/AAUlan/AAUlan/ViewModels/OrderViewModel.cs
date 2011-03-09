@@ -8,6 +8,6 @@ namespace AAUlan.ViewModels
 {
     public class OrderViewModel
     {
-        public Pizza pizza { get; set; }
+        public Mad pizza { get; set; }
     }
 }
