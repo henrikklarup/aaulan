@@ -24,25 +24,31 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
-            viewModel.mad.Number = viewModel.mad.NUM;
+            if (viewModel.mad.Number == 0)
+            {
+                return RedirectToAction("Status", new { status = 2 });
+            }
+            viewModel.mad.Number = viewModel.mad.Number;
             viewModel.mad.Paid = false;
             bool accepted = repo.AddOrder(viewModel.mad);
 
             if (accepted)
-                return RedirectToAction("Status", new { status = true });
+                return RedirectToAction("Status", new { status = 0 });
             else
-                return RedirectToAction("Status", new { status = false });
+                return RedirectToAction("Status", new { status = 1 });
         }
 
         [HttpGet]
-        public ActionResult Status(bool status)
+        public ActionResult Status(int status)
         {
             var viewModel = new Mad();
 
-            if (status)
-                viewModel.x= "Confirmed - Now go paid asshole!";
-            else
-                viewModel.x = "Denied - Either you suck, or the crew does";
+            if (status == 0)
+                viewModel.x= "Confirmed - SKAL BETALES - NU!";
+            else if(status == 1)
+                viewModel.x = "Denied - There is no such event";
+            else if(status == 2)
+                viewModel.x = "Denied - Out range exeption";
 
             return View(viewModel);
         }

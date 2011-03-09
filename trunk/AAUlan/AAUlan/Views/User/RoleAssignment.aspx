@@ -41,7 +41,7 @@
                   { %>
                 <input value="Promote" type="submit" name="submitButton" />
                 <%} %>
-                <%if (user.Role.Trim() != "Bruger")
+                <%if (user.Role.Trim() != "User")
                   {%>
                 <input value="Demote" type="submit" name="submitButton" />
                 <%} %>
