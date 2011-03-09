@@ -20,6 +20,8 @@ namespace AAUlan.Controllers
             return View();
         }
 
+
+        #region User
         [HttpGet]
         public ActionResult RoleAssignment()
         {
@@ -60,7 +62,9 @@ namespace AAUlan.Controllers
 
             return View("RoleAssignment", viewModel);
         }
+        #endregion
 
+        #region Lan
 
         [HttpGet]
         public ActionResult CreateLan()
@@ -79,6 +83,15 @@ namespace AAUlan.Controllers
         }
 
         [HttpGet]
+        public ActionResult AllLans()
+        {
+            var viewModel = repo.GetAllLans();
+            return View("../Lan/AllLans", viewModel);
+        }
+        #endregion
+
+        #region Event
+        [HttpGet]
         public ActionResult CreateEvent()
         {
             var viewModel = new Event();
@@ -93,5 +106,13 @@ namespace AAUlan.Controllers
 
             return View("../Event/Event");
         }
+
+        [HttpGet]
+        public ActionResult AllEvents()
+        {
+            var viewModel = repo.GetAllEvents();
+            return View("../Event/AllEvents", viewModel);
+        }
+        #endregion
     }
 }
