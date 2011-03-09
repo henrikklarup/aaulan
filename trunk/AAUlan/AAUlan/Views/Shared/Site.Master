@@ -17,7 +17,7 @@
 
 <div id="login" class="login">
 <% AAUlan.Models.User emptyUser = new AAUlan.Models.User(); %>
-[ <% Html.RenderPartial("LoginBox", emptyUser); %> ]
+<% Html.RenderPartial("LoginBox", emptyUser); %>
 </div>
 
 <div class="slogo" id="slogo">

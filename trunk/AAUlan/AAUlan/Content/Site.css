@@ -19,9 +19,19 @@ body
     color:#ffffff;
 }
 
-#login a
+#login a, a:visited
 {
     color:#ffffff;
+}
+
+#login a:hover
+{
+    color:#aaaaaa;
+}
+
+#login a:active
+{
+    color:#888888;
 }
 
 #slogo
