@@ -11,21 +11,21 @@ namespace AAUlan.Models
         AAULANHOMEPAGEEntities aauEnt = new AAULANHOMEPAGEEntities();
 
         #region AddOrder
-        public bool AddOrder(Pizza pizza)
+        public bool AddOrder(Mad mad)
         {
             //Find last id
-            Pizza idpizza = aauEnt.Pizza.Where(s => s.ID > 0).OrderByDescending(s => s.ID).FirstOrDefault();
-            if (idpizza == null)
+            Mad idmad = aauEnt.Mad.Where(s => s.ID > 0).OrderByDescending(s => s.ID).FirstOrDefault();
+            if (idmad == null)
             {
-                pizza.ID = 1;
+                mad.ID = 1;
             }
             else
             {
-                pizza.ID = idpizza.ID;
-                pizza.ID++;
+                mad.ID = idmad.ID;
+                mad.ID++;
             }
 
-            aauEnt.AddToPizza(pizza);
+            aauEnt.AddToMad(mad);
             Save();
             return true;
         }
