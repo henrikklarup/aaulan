@@ -39,9 +39,9 @@ namespace AAUlan.Controllers
             var viewModel = new Mad();
 
             if (status)
-                viewModel.x= "Confirmed";
+                viewModel.x= "Confirmed - Now go paid asshole!";
             else
-                viewModel.x = "Denied";
+                viewModel.x = "Denied - Either you suck, or the crew does";
 
             return View(viewModel);
         }
