@@ -15,6 +15,5 @@ namespace AAUlan.Controllers
         {
             return View();
         }
-
     }
 }
