@@ -10,6 +10,15 @@ namespace AAUlan.Models
     {
         AAULANHOMEPAGEEntities aauEnt = new AAULANHOMEPAGEEntities();
 
+
+        #region GetCurrentEvent
+        public Event GetCurrentEvent()
+        {
+
+        }
+        #endregion
+
+
         #region AddOrder
         public bool AddOrder(Mad mad)
         {
@@ -47,6 +56,27 @@ namespace AAUlan.Models
             }
 
             aauEnt.AddToLAN(lan);
+            Save();
+            return true;
+        }
+        #endregion
+
+        #region AddEvent
+        public bool AddEvent(Event event1)
+        {
+            //Find last id
+            Event idevent = aauEnt.Event.Where(s => s.ID > 0).OrderByDescending(s => s.ID).FirstOrDefault();
+            if (idevent == null)
+            {
+                event1.ID = 1;
+            }
+            else
+            {
+                event1.ID = idevent.ID;
+                event1.ID++;
+            }
+
+            aauEnt.AddToEvent(event1);
             Save();
             return true;
         }
