@@ -16,6 +16,12 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("AAULANHOMEPAGEModel", "FK_Event_Games", "Games", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AAUlan.Models.Games), "Event", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AAUlan.Models.Event), true)]
+[assembly: EdmRelationshipAttribute("AAULANHOMEPAGEModel", "FK_Event_LAN", "LAN", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(AAUlan.Models.LAN), "Event", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AAUlan.Models.Event), true)]
+
+#endregion
 
 namespace AAUlan.Models
 {
@@ -68,18 +74,66 @@ namespace AAUlan.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pizza> Pizza
+        public ObjectSet<Event> Event
         {
             get
             {
-                if ((_Pizza == null))
+                if ((_Event == null))
                 {
-                    _Pizza = base.CreateObjectSet<Pizza>("Pizza");
+                    _Event = base.CreateObjectSet<Event>("Event");
                 }
-                return _Pizza;
+                return _Event;
             }
         }
-        private ObjectSet<Pizza> _Pizza;
+        private ObjectSet<Event> _Event;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Games> Games
+        {
+            get
+            {
+                if ((_Games == null))
+                {
+                    _Games = base.CreateObjectSet<Games>("Games");
+                }
+                return _Games;
+            }
+        }
+        private ObjectSet<Games> _Games;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LAN> LAN
+        {
+            get
+            {
+                if ((_LAN == null))
+                {
+                    _LAN = base.CreateObjectSet<LAN>("LAN");
+                }
+                return _LAN;
+            }
+        }
+        private ObjectSet<LAN> _LAN;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Mad> Mad
+        {
+            get
+            {
+                if ((_Mad == null))
+                {
+                    _Mad = base.CreateObjectSet<Mad>("Mad");
+                }
+                return _Mad;
+            }
+        }
+        private ObjectSet<Mad> _Mad;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -96,32 +150,40 @@ namespace AAUlan.Models
             }
         }
         private ObjectSet<User> _User;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Deadline> Deadline
-        {
-            get
-            {
-                if ((_Deadline == null))
-                {
-                    _Deadline = base.CreateObjectSet<Deadline>("Deadline");
-                }
-                return _Deadline;
-            }
-        }
-        private ObjectSet<Deadline> _Deadline;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Pizza EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Event EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPizza(Pizza pizza)
+        public void AddToEvent(Event @event)
         {
-            base.AddObject("Pizza", pizza);
+            base.AddObject("Event", @event);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Games EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToGames(Games games)
+        {
+            base.AddObject("Games", games);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LAN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLAN(LAN lAN)
+        {
+            base.AddObject("LAN", lAN);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Mad EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMad(Mad mad)
+        {
+            base.AddObject("Mad", mad);
         }
     
         /// <summary>
@@ -130,14 +192,6 @@ namespace AAUlan.Models
         public void AddToUser(User user)
         {
             base.AddObject("User", user);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Deadline EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDeadline(Deadline deadline)
-        {
-            base.AddObject("Deadline", deadline);
         }
 
         #endregion
@@ -151,28 +205,30 @@ namespace AAUlan.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="Deadline")]
+    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="Event")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Deadline : EntityObject
+    public partial class Event : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Deadline object.
+        /// Create a new Event object.
         /// </summary>
         /// <param name="startTime">Initial value of the StartTime property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="endTime">Initial value of the EndTime property.</param>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Deadline CreateDeadline(global::System.DateTime startTime, global::System.String name, global::System.DateTime endTime, global::System.Int32 id)
+        /// <param name="lANID">Initial value of the LANID property.</param>
+        public static Event CreateEvent(global::System.DateTime startTime, global::System.String name, global::System.DateTime endTime, global::System.Int32 id, global::System.Int32 lANID)
         {
-            Deadline deadline = new Deadline();
-            deadline.StartTime = startTime;
-            deadline.Name = name;
-            deadline.EndTime = endTime;
-            deadline.ID = id;
-            return deadline;
+            Event @event = new Event();
+            @event.StartTime = startTime;
+            @event.Name = name;
+            @event.EndTime = endTime;
+            @event.ID = id;
+            @event.LANID = lANID;
+            return @event;
         }
 
         #endregion
@@ -276,38 +332,547 @@ namespace AAUlan.Models
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LANID
+        {
+            get
+            {
+                return _LANID;
+            }
+            set
+            {
+                OnLANIDChanging(value);
+                ReportPropertyChanging("LANID");
+                _LANID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LANID");
+                OnLANIDChanged();
+            }
+        }
+        private global::System.Int32 _LANID;
+        partial void OnLANIDChanging(global::System.Int32 value);
+        partial void OnLANIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> GAMEID
+        {
+            get
+            {
+                return _GAMEID;
+            }
+            set
+            {
+                OnGAMEIDChanging(value);
+                ReportPropertyChanging("GAMEID");
+                _GAMEID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GAMEID");
+                OnGAMEIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _GAMEID;
+        partial void OnGAMEIDChanging(Nullable<global::System.Int32> value);
+        partial void OnGAMEIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Rules
+        {
+            get
+            {
+                return _Rules;
+            }
+            set
+            {
+                OnRulesChanging(value);
+                ReportPropertyChanging("Rules");
+                _Rules = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Rules");
+                OnRulesChanged();
+            }
+        }
+        private global::System.String _Rules;
+        partial void OnRulesChanging(global::System.String value);
+        partial void OnRulesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FoodID
+        {
+            get
+            {
+                return _FoodID;
+            }
+            set
+            {
+                OnFoodIDChanging(value);
+                ReportPropertyChanging("FoodID");
+                _FoodID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FoodID");
+                OnFoodIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FoodID;
+        partial void OnFoodIDChanging(Nullable<global::System.Int32> value);
+        partial void OnFoodIDChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAULANHOMEPAGEModel", "FK_Event_Games", "Games")]
+        public Games Games
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Games>("AAULANHOMEPAGEModel.FK_Event_Games", "Games").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Games>("AAULANHOMEPAGEModel.FK_Event_Games", "Games").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Games> GamesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Games>("AAULANHOMEPAGEModel.FK_Event_Games", "Games");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Games>("AAULANHOMEPAGEModel.FK_Event_Games", "Games", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAULANHOMEPAGEModel", "FK_Event_LAN", "LAN")]
+        public LAN LAN
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LAN>("AAULANHOMEPAGEModel.FK_Event_LAN", "LAN").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LAN>("AAULANHOMEPAGEModel.FK_Event_LAN", "LAN").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<LAN> LANReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<LAN>("AAULANHOMEPAGEModel.FK_Event_LAN", "LAN");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<LAN>("AAULANHOMEPAGEModel.FK_Event_LAN", "LAN", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="Pizza")]
+    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="Games")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Pizza : EntityObject
+    public partial class Games : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Pizza object.
+        /// Create a new Games object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        public static Games CreateGames(global::System.Int32 id, global::System.String description)
+        {
+            Games games = new Games();
+            games.ID = id;
+            games.Description = description;
+            return games;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DL_Link
+        {
+            get
+            {
+                return _DL_Link;
+            }
+            set
+            {
+                OnDL_LinkChanging(value);
+                ReportPropertyChanging("DL_Link");
+                _DL_Link = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DL_Link");
+                OnDL_LinkChanged();
+            }
+        }
+        private global::System.String _DL_Link;
+        partial void OnDL_LinkChanging(global::System.String value);
+        partial void OnDL_LinkChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAULANHOMEPAGEModel", "FK_Event_Games", "Event")]
+        public EntityCollection<Event> Event
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Event>("AAULANHOMEPAGEModel.FK_Event_Games", "Event");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Event>("AAULANHOMEPAGEModel.FK_Event_Games", "Event", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="LAN")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class LAN : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new LAN object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="startTime">Initial value of the StartTime property.</param>
+        /// <param name="endTime">Initial value of the EndTime property.</param>
+        public static LAN CreateLAN(global::System.Int32 id, global::System.DateTime startTime, global::System.DateTime endTime)
+        {
+            LAN lAN = new LAN();
+            lAN.ID = id;
+            lAN.StartTime = startTime;
+            lAN.EndTime = endTime;
+            return lAN;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartTime
+        {
+            get
+            {
+                return _StartTime;
+            }
+            set
+            {
+                OnStartTimeChanging(value);
+                ReportPropertyChanging("StartTime");
+                _StartTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartTime");
+                OnStartTimeChanged();
+            }
+        }
+        private global::System.DateTime _StartTime;
+        partial void OnStartTimeChanging(global::System.DateTime value);
+        partial void OnStartTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EndTime
+        {
+            get
+            {
+                return _EndTime;
+            }
+            set
+            {
+                OnEndTimeChanging(value);
+                ReportPropertyChanging("EndTime");
+                _EndTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndTime");
+                OnEndTimeChanged();
+            }
+        }
+        private global::System.DateTime _EndTime;
+        partial void OnEndTimeChanging(global::System.DateTime value);
+        partial void OnEndTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Location
+        {
+            get
+            {
+                return _Location;
+            }
+            set
+            {
+                OnLocationChanging(value);
+                ReportPropertyChanging("Location");
+                _Location = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Location");
+                OnLocationChanged();
+            }
+        }
+        private global::System.String _Location;
+        partial void OnLocationChanging(global::System.String value);
+        partial void OnLocationChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("AAULANHOMEPAGEModel", "FK_Event_LAN", "Event")]
+        public EntityCollection<Event> Event
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Event>("AAULANHOMEPAGEModel.FK_Event_LAN", "Event");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Event>("AAULANHOMEPAGEModel.FK_Event_LAN", "Event", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="AAULANHOMEPAGEModel", Name="Mad")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Mad : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Mad object.
         /// </summary>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="paid">Initial value of the Paid property.</param>
         /// <param name="number">Initial value of the Number property.</param>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="lANID">Initial value of the LANID property.</param>
-        public static Pizza CreatePizza(global::System.String name, global::System.Boolean paid, global::System.Int32 number, global::System.Int32 id, global::System.Int32 lANID)
+        /// <param name="eVENTID">Initial value of the EVENTID property.</param>
+        public static Mad CreateMad(global::System.String name, global::System.Boolean paid, global::System.Int32 number, global::System.Int32 id, global::System.Int32 eVENTID)
         {
-            Pizza pizza = new Pizza();
-            pizza.Name = name;
-            pizza.Paid = paid;
-            pizza.Number = number;
-            pizza.ID = id;
-            pizza.LANID = lANID;
-            return pizza;
+            Mad mad = new Mad();
+            mad.Name = name;
+            mad.Paid = paid;
+            mad.Number = number;
+            mad.ID = id;
+            mad.EVENTID = eVENTID;
+            return mad;
         }
 
         #endregion
@@ -441,24 +1006,24 @@ namespace AAUlan.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 LANID
+        public global::System.Int32 EVENTID
         {
             get
             {
-                return _LANID;
+                return _EVENTID;
             }
             set
             {
-                OnLANIDChanging(value);
-                ReportPropertyChanging("LANID");
-                _LANID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LANID");
-                OnLANIDChanged();
+                OnEVENTIDChanging(value);
+                ReportPropertyChanging("EVENTID");
+                _EVENTID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EVENTID");
+                OnEVENTIDChanged();
             }
         }
-        private global::System.Int32 _LANID;
-        partial void OnLANIDChanging(global::System.Int32 value);
-        partial void OnLANIDChanged();
+        private global::System.Int32 _EVENTID;
+        partial void OnEVENTIDChanging(global::System.Int32 value);
+        partial void OnEVENTIDChanged();
 
         #endregion
     
