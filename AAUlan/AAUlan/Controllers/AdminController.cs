@@ -61,5 +61,21 @@ namespace AAUlan.Controllers
             return View("RoleAssignment", viewModel);
         }
 
+
+        [HttpGet]
+        public ActionResult CreateLan()
+        {
+            var viewModel = new LanViewModel();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult CreateLan(LanViewModel viewModel)
+        {
+
+
+            return View(viewModel);
+        }
     }
 }

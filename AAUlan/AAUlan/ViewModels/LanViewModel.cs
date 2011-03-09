@@ -8,5 +8,6 @@ namespace AAUlan.ViewModels
 {
     public class LanViewModel
     {
+        public LAN lan { get; set; }
     }
 }

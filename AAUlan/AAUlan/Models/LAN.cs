@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AAUlan.Models
 {
-    public partial class Pizza
+    public partial class LAN
     {
     }
 }
