@@ -13,9 +13,9 @@ namespace AAUlan.Controllers
 
         DatabaseReposity repo = new DatabaseReposity();
 
-        //
-        // GET: /Home/
-
+        #region Index
+        #region GET
+        [HttpGet]
         public ActionResult Index()
         {
             var viewModel = new EventViewModel();
@@ -31,5 +31,7 @@ namespace AAUlan.Controllers
 
             return View(viewModel);
         }
+        #endregion
+        #endregion
     }
 }
