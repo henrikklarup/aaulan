@@ -27,13 +27,15 @@
                 Number
             </th>
             <th>
+                FOOD ID!
+            </th>
+            <th>
                 Paid
             </th>
         </tr>
 
     <% for (int i = 0; i < Model.Orders.Count; i++)
        { %>
-    
         <tr>
             <td>
                 <%: Model.Orders[i].Name%>
@@ -46,10 +48,12 @@
                 <%: Model.Orders[i].Number%>
             </td>
             <td>
+                <%: Model.Orders[i].EVENTID%>
+            </td>
+            <td>
                 <%: Html.CheckBoxFor(model => Model.Orders[i].Paid)%>
             </td>
         </tr>
-    
     <% } %>
 
     </table>
