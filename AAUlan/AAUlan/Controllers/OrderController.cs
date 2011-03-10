@@ -97,5 +97,16 @@ namespace AAUlan.Controllers
         #endregion
         #endregion
         #endregion
+
+        #region DeleteOrder
+        #region GET
+        [HttpGet]
+        public ActionResult DeleteOrder(int id)
+        {
+            repo.DeleteOrder(id);
+            return RedirectToAction("AllOrders");
+        }
+        #endregion
+        #endregion
     }
 }

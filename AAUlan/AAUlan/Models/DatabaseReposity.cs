@@ -10,6 +10,7 @@ namespace AAUlan.Models
     {
         AAULANHOMEPAGEEntities aauEnt = new AAULANHOMEPAGEEntities();
 
+        #region GET
 
         #region GetCurrentEvent
         public Event GetCurrentEvent()
@@ -88,6 +89,9 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #endregion
+
+        #region ADD
         #region AddOrder
         public bool AddOrder(Mad mad)
         {
@@ -198,7 +202,20 @@ namespace AAUlan.Models
             Save();
         }
         #endregion
+        #endregion
 
+        #region DELETE
+        #region DeleteOrder
+        public void DeleteOrder(int id)
+        {
+            Mad madobject = aauEnt.Mad.Where(s => s.ID == id).FirstOrDefault();
+            aauEnt.DeleteObject(madobject);
+            Save();
+        }
+        #endregion
+        #endregion
+
+        #region UPDATE
         #region UpdateOrders
         public void UpdateOrders(List<Mad> orders)
         {
@@ -210,7 +227,9 @@ namespace AAUlan.Models
             }
         }
         #endregion
+        #endregion
 
+        #region USER
         #region User
         #region GetAllUsers
         /// <summary>
@@ -316,12 +335,15 @@ namespace AAUlan.Models
         }
         #endregion
         #endregion
+        #endregion
 
+        #region SAVE
         #region Save
         public void Save()
         {
             aauEnt.SaveChanges();
         }
+        #endregion
         #endregion
 
     }

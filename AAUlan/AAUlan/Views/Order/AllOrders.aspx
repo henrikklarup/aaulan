@@ -32,6 +32,7 @@
             <th>
                 Paid
             </th>
+            <th></th>
         </tr>
 
     <% for (int i = 0; i < Model.Orders.Count; i++)
@@ -52,6 +53,9 @@
             </td>
             <td>
                 <%: Html.CheckBoxFor(model => Model.Orders[i].Paid)%>
+            </td>
+            <td>
+                <%: Html.ActionLink("Delete", "DeleteOrder", new{ id = Model.Orders[i].ID }) %>
             </td>
         </tr>
     <% } %>
