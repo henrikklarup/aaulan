@@ -5,10 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-      <script src="<%= Url.Content("~/Scripts/MicrosoftAjax.debug.js") %>" type="text/javascript"></script>
-  <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.debug.js") %>" type="text/javascript"></script>
-  <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.debug.js") %>" type="text/javascript"></script>
-  <% Html.EnableClientValidation();%>
     <script type="text/javascript" language="javascript">
         var javascript_countdown = function () {
             var time_left = 10; //number of seconds for countdown
@@ -35,7 +31,7 @@
                 seconds = add_leading_zero(seconds);
                 minutes = add_leading_zero(minutes);
                 hours = add_leading_zero(hours);
-                return 'Bestil Pizza inden: ' + hours + ':' + minutes + ':' + seconds;
+                return ': ' + hours + ':' + minutes + ':' + seconds;
             }
             function show_time_left() {
                 document.getElementById('javascript_countdown_time').innerHTML = format_output(); //time_left;
@@ -92,6 +88,7 @@
         <ul id="menu">              
             <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
             <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
+            <li><%: Html.ActionLink("Games", "AllGames", "Admin") %></li>
             <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
             <li><a href="http://challonge.com" target="_blank">Turneringer</a></li>
             <%if (Context.User.Identity.IsAuthenticated && (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Crew")))
@@ -99,15 +96,15 @@
                 <li><%: Html.ActionLink("Users","RoleAssignment", "Admin") %></li>
                 <li><%: Html.ActionLink("Lans", "AllLans", "Admin") %></li>
                 <li><%: Html.ActionLink("Events", "AllEvents", "Admin")%></li>
-                <li><%: Html.ActionLink("Games", "AllGames", "Admin") %></li>
                 <li><%: Html.ActionLink("Orders", "AllOrders", "Order") %></li>
             <%} %>
         </ul>
     </div>
 
     <div id="javascript_countdown_time" class="maincontent">
+    Bestil Pizza inden
     <script type="text/javascript" language="javascript">
-        javascript_countdown.init(<%: pizzatime.timeTillNextPizza() %>);
+        javascript_countdown.init(<%: pizzatime.timeToStart() %>);
     </script>
     </div>
 

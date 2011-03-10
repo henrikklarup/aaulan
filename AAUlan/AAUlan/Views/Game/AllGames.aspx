@@ -15,7 +15,6 @@
             <th>
                 DL_Link
             </th>
-            <th></th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -30,11 +29,6 @@
             <td>
                 <%: item.DL_Link %>
             </td>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.ID }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.ID })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.ID })%>
-            </td>
         </tr>
     
     <% } %>
@@ -42,7 +36,9 @@
     </table>
 
     <p>
+        <%if( Context.User.IsInRole("Administrator") || Context.User.IsInRole("Crew")) {%>
         <%: Html.ActionLink("Create Game", "CreateGame", "Admin") %>
+        <%} %>
     </p>
 
 </asp:Content>

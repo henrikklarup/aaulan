@@ -45,7 +45,7 @@ namespace AAUlan.Models
         public IQueryable<Event> GetAllFutureEvents(int lanID)
         {
 
-            var x = aauEnt.Event.Where(s => s.LANID == lanID && s.EndTime >= DateTime.Now);
+            var x = aauEnt.Event.Where(s => s.LANID == lanID && s.EndTime >= DateTime.Now).OrderBy(s => s.StartTime);
 
             return x;
         }

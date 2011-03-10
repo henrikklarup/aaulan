@@ -7,7 +7,7 @@
     <%foreach (var i in Model.events)
       {%>
     <fieldset>
-        <legend><%:i.Name %></legend>
+        <legend><%:i.Name %> Starts in<script type="text/javascript" language="javascript">javascript_countdown.init(<%: i.timeToStart() %>);</script></legend>
         <%: "Start Time: " + i.StartTime.ToString() %>
         <br />
         <%: "End Time: " + i.EndTime.ToString() %>

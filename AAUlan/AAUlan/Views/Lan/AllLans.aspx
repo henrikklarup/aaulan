@@ -21,7 +21,6 @@
             <th>
                 Location
             </th>
-            <th></th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -41,11 +40,6 @@
             </td>
             <td>
                 <%: item.Location %>
-            </td>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.ID }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.ID })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.ID })%>
             </td>
         </tr>
     
