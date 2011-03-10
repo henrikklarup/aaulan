@@ -12,15 +12,19 @@ namespace AAUlan.Controllers
     {
         DatabaseReposity repo = new DatabaseReposity();
 
-        //
-        // GET: /Admin/
+        #region Index
+        #region GET
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+        #endregion
+        #endregion
 
         #region User
+        #region RoleAssignment
+        #region GET
         [HttpGet]
         [Authorize(Roles="Administrator, Crew")]
         public ActionResult RoleAssignment()
@@ -32,7 +36,11 @@ namespace AAUlan.Controllers
 
             return View("../User/RoleAssignment",viewModel);
         }
+        #endregion
+        #endregion
 
+        #region PromoteOrDemote
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator")]
         public ActionResult PromoteOrDemote(string submitButton, string Username)
@@ -50,7 +58,11 @@ namespace AAUlan.Controllers
             }
             return View();
         }
+        #endregion
+        #endregion
 
+        #region SearchUsername
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult SearchUsername(string Username)
@@ -63,9 +75,13 @@ namespace AAUlan.Controllers
             return View("../User/RoleAssignment", viewModel);
         }
         #endregion
+        #endregion
+        #endregion
 
         #region Lan
 
+        #region CreateLan
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateLan()
@@ -74,7 +90,9 @@ namespace AAUlan.Controllers
 
             return View("../Lan/CreateLan",viewModel);
         }
+        #endregion
 
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateLan(LanViewModel viewModel)
@@ -83,7 +101,11 @@ namespace AAUlan.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        #endregion
+        #endregion
 
+        #region AllLans
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllLans()
@@ -92,8 +114,12 @@ namespace AAUlan.Controllers
             return View("../Lan/AllLans", viewModel);
         }
         #endregion
+        #endregion
+        #endregion
 
         #region Event
+        #region CreateEvent
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateEvent()
@@ -102,7 +128,9 @@ namespace AAUlan.Controllers
 
             return View("../Event/Event");
         }
+        #endregion
 
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateEvent(Event event1)
@@ -111,7 +139,11 @@ namespace AAUlan.Controllers
 
             return View("../Event/Event");
         }
+        #endregion
+        #endregion
 
+        #region AllEvents
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllEvents()
@@ -120,8 +152,12 @@ namespace AAUlan.Controllers
             return View("../Event/AllEvents", viewModel);
         }
         #endregion
+        #endregion
+        #endregion
 
         #region Game
+        #region CreateGame
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateGame()
@@ -130,7 +166,9 @@ namespace AAUlan.Controllers
 
             return View("../Game/Game", viewModel);
         }
+        #endregion
 
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateGame(Games viewModel)
@@ -139,7 +177,11 @@ namespace AAUlan.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        #endregion
+        #endregion
 
+        #region AllGames
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllGames()
@@ -147,6 +189,8 @@ namespace AAUlan.Controllers
             var viewModel = repo.GetAllGames();
             return View("../Game/AllGames", viewModel);
         }
+        #endregion
+        #endregion
         #endregion
     }
 }

@@ -12,15 +12,17 @@ namespace AAUlan.Controllers
     {
         DatabaseReposity repo = new DatabaseReposity();
 
-        //
-        // GET: /Order/
+        #region Index
+        #region GET
         [HttpGet]
         public ActionResult Index()
         {
             var viewModel = new OrderViewModel();
             return View(viewModel);
         }
+        #endregion
 
+        #region POST
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
@@ -37,7 +39,11 @@ namespace AAUlan.Controllers
             else
                 return RedirectToAction("Status", new { status = 1 });
         }
+        #endregion
+        #endregion
 
+        #region Status
+        #region GET
         [HttpGet]
         public ActionResult Status(int status)
         {
@@ -52,8 +58,11 @@ namespace AAUlan.Controllers
 
             return View(viewModel);
         }
+        #endregion
+        #endregion
 
-
+        #region AllOrders
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrders()
@@ -64,7 +73,9 @@ namespace AAUlan.Controllers
             };
             return View("../Order/AllOrders", viewModel);
         }
+        #endregion
 
+        #region POST
         [HttpPost]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrders(OrderViewModel viewModel)
@@ -72,7 +83,10 @@ namespace AAUlan.Controllers
             repo.UpdateOrders(viewModel.Orders);
             return RedirectToAction("AllOrders");
         }
+        #endregion
 
+        #region AllOrdersWith ID
+        #region GET
         [HttpGet]
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrdersWithId(int id)
@@ -80,5 +94,8 @@ namespace AAUlan.Controllers
             var viewModel = repo.GetAllOrdersWithId(id);
             return View("../Order/AllOrders", viewModel);
         }
+        #endregion
+        #endregion
+        #endregion
     }
 }
