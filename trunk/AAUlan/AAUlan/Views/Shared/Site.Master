@@ -31,7 +31,7 @@
                 seconds = add_leading_zero(seconds);
                 minutes = add_leading_zero(minutes);
                 hours = add_leading_zero(hours);
-                return ': ' + hours + ':' + minutes + ':' + seconds;
+                return 'Bestil Pizza inden: ' + hours + ':' + minutes + ':' + seconds;
             }
             function show_time_left() {
                 document.getElementById('javascript_countdown_time').innerHTML = format_output(); //time_left;
@@ -102,7 +102,6 @@
     </div>
 
     <div id="javascript_countdown_time" class="maincontent">
-    Bestil Pizza inden
     <script type="text/javascript" language="javascript">
         javascript_countdown.init(<%: pizzatime.timeToStart() %>);
     </script>

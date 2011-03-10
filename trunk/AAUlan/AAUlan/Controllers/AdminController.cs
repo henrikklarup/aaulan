@@ -183,7 +183,6 @@ namespace AAUlan.Controllers
         #region AllGames
         #region GET
         [HttpGet]
-        [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllGames()
         {
             var viewModel = repo.GetAllGames();
