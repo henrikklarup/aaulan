@@ -24,7 +24,7 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
-            if (viewModel.mad.Number == 0)
+            if (viewModel.mad.Number < 1 || viewModel.mad.Number > 90)
             {
                 return RedirectToAction("Status", new { status = 2 });
             }

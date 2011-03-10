@@ -8,7 +8,7 @@ namespace AAUlan.Models
     public partial class Event
     {
 
-        public int timeTillNextPizza()
+        public int timeToStart()
         {
             return (int)(this.EndTime - DateTime.Now).TotalSeconds;
         }
