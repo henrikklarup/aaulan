@@ -30,32 +30,32 @@ namespace AAUlan.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class AAULANHOMEPAGEEntities : ObjectContext
+    public partial class AAULANHOMEPAGEEntities1 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new AAULANHOMEPAGEEntities object using the connection string found in the 'AAULANHOMEPAGEEntities' section of the application configuration file.
+        /// Initializes a new AAULANHOMEPAGEEntities1 object using the connection string found in the 'AAULANHOMEPAGEEntities1' section of the application configuration file.
         /// </summary>
-        public AAULANHOMEPAGEEntities() : base("name=AAULANHOMEPAGEEntities", "AAULANHOMEPAGEEntities")
+        public AAULANHOMEPAGEEntities1() : base("name=AAULANHOMEPAGEEntities1", "AAULANHOMEPAGEEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new AAULANHOMEPAGEEntities object.
+        /// Initialize a new AAULANHOMEPAGEEntities1 object.
         /// </summary>
-        public AAULANHOMEPAGEEntities(string connectionString) : base(connectionString, "AAULANHOMEPAGEEntities")
+        public AAULANHOMEPAGEEntities1(string connectionString) : base(connectionString, "AAULANHOMEPAGEEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new AAULANHOMEPAGEEntities object.
+        /// Initialize a new AAULANHOMEPAGEEntities1 object.
         /// </summary>
-        public AAULANHOMEPAGEEntities(EntityConnection connection) : base(connection, "AAULANHOMEPAGEEntities")
+        public AAULANHOMEPAGEEntities1(EntityConnection connection) : base(connection, "AAULANHOMEPAGEEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

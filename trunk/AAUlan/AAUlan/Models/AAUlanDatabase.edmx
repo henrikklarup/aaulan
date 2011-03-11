@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AAULANHOMEPAGEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="AAULANHOMEPAGEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AAULANHOMEPAGEModelStoreContainer">
           <EntitySet Name="Event" EntityType="AAULANHOMEPAGEModel.Store.Event" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Games" EntityType="AAULANHOMEPAGEModel.Store.Games" store:Type="Tables" Schema="dbo" />
@@ -96,11 +96,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AAULANHOMEPAGEModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="AAULANHOMEPAGEEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AAULANHOMEPAGEEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Event" EntityType="AAULANHOMEPAGEModel.Event" />
           <EntitySet Name="Games" EntityType="AAULANHOMEPAGEModel.Games" />
           <EntitySet Name="LAN" EntityType="AAULANHOMEPAGEModel.LAN" />
@@ -119,15 +120,15 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="DateTime" Name="StartTime" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="DateTime" Name="EndTime" Nullable="false" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="LANID" Nullable="false" />
-          <Property Type="Int32" Name="GAMEID" />
-          <Property Type="String" Name="Description" MaxLength="300" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Rules" MaxLength="300" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="FoodID" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LANID" Type="Int32" Nullable="false" />
+          <Property Name="GAMEID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="true" />
+          <Property Name="Rules" Type="String" MaxLength="300" Unicode="true" FixedLength="true" />
+          <Property Name="FoodID" Type="Int32" />
           <NavigationProperty Name="Games" Relationship="AAULANHOMEPAGEModel.FK_Event_Games" FromRole="Event" ToRole="Games" />
           <NavigationProperty Name="LAN" Relationship="AAULANHOMEPAGEModel.FK_Event_LAN" FromRole="Event" ToRole="LAN" />
         </EntityType>
@@ -135,45 +136,45 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="300" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="DL_Link" MaxLength="300" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="true" />
+          <Property Name="DL_Link" Type="String" MaxLength="300" Unicode="true" FixedLength="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="true" />
           <NavigationProperty Name="Event" Relationship="AAULANHOMEPAGEModel.FK_Event_Games" FromRole="Games" ToRole="Event" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="LAN">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="DateTime" Name="StartTime" Nullable="false" />
-          <Property Type="DateTime" Name="EndTime" Nullable="false" />
-          <Property Type="String" Name="Description" MaxLength="300" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Location" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="true" />
+          <Property Name="Location" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
           <NavigationProperty Name="Event" Relationship="AAULANHOMEPAGEModel.FK_Event_LAN" FromRole="LAN" ToRole="Event" />
         </EntityType>
         <EntityType Name="Mad">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
-          <Property Type="Boolean" Name="Paid" Nullable="false" />
-          <Property Type="String" Name="Note" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="Number" Nullable="false" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="EVENTID" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="true" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EVENTID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Username" />
           </Key>
-          <Property Type="String" Name="Username" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Role" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="true" />
         </EntityType>
         <Association Name="FK_Event_Games">
-          <End Type="AAULANHOMEPAGEModel.Games" Role="Games" Multiplicity="0..1" />
-          <End Type="AAULANHOMEPAGEModel.Event" Role="Event" Multiplicity="*" />
+          <End Role="Games" Type="AAULANHOMEPAGEModel.Games" Multiplicity="0..1" />
+          <End Role="Event" Type="AAULANHOMEPAGEModel.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Games">
               <PropertyRef Name="ID" />
@@ -184,8 +185,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Event_LAN">
-          <End Type="AAULANHOMEPAGEModel.LAN" Role="LAN" Multiplicity="1" />
-          <End Type="AAULANHOMEPAGEModel.Event" Role="Event" Multiplicity="*" />
+          <End Role="LAN" Type="AAULANHOMEPAGEModel.LAN" Multiplicity="1" />
+          <End Role="Event" Type="AAULANHOMEPAGEModel.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LAN">
               <PropertyRef Name="ID" />
@@ -195,69 +196,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AAULANHOMEPAGEModelStoreContainer" CdmEntityContainer="AAULANHOMEPAGEEntities">
-          <EntitySetMapping Name="Event">
-            <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Event">
-              <MappingFragment StoreEntitySet="Event">
-                <ScalarProperty Name="FoodID" ColumnName="FoodID" />
-                <ScalarProperty Name="Rules" ColumnName="Rules" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="GAMEID" ColumnName="GAMEID" />
-                <ScalarProperty Name="LANID" ColumnName="LANID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Games">
-            <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Games">
-              <MappingFragment StoreEntitySet="Games">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DL_Link" ColumnName="DL-Link" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LAN">
-            <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.LAN">
-              <MappingFragment StoreEntitySet="LAN">
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Mad">
-            <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Mad">
-              <MappingFragment StoreEntitySet="Mad">
-                <ScalarProperty Name="EVENTID" ColumnName="EVENTID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Paid" ColumnName="Paid" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="AAULANHOMEPAGEModelStoreContainer" CdmEntityContainer="AAULANHOMEPAGEEntities1">
+          <EntitySetMapping Name="Event"><EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Event"><MappingFragment StoreEntitySet="Event">
+            <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="LANID" ColumnName="LANID" />
+            <ScalarProperty Name="GAMEID" ColumnName="GAMEID" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Rules" ColumnName="Rules" />
+            <ScalarProperty Name="FoodID" ColumnName="FoodID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Games"><EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Games"><MappingFragment StoreEntitySet="Games">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="DL_Link" ColumnName="DL-Link" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LAN"><EntityTypeMapping TypeName="AAULANHOMEPAGEModel.LAN"><MappingFragment StoreEntitySet="LAN">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+            <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Mad"><EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Mad"><MappingFragment StoreEntitySet="Mad">
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Paid" ColumnName="Paid" />
+            <ScalarProperty Name="Note" ColumnName="Note" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="EVENTID" ColumnName="EVENTID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="User"><EntityTypeMapping TypeName="AAULANHOMEPAGEModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="Username" ColumnName="Username" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Role" ColumnName="Role" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -278,20 +259,20 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="AAUlanData">
-        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Event" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833326" />
-        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Games" Width="1.5" PointX="0.5" PointY="1" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.LAN" Width="1.5" PointX="0.625" PointY="3.875" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Mad" Width="1.5" PointX="5.75" PointY="0.75" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.User" Width="1.5" PointX="5.75" PointY="3.5" Height="1.5956835937499996" />
-        <AssociationConnector Association="AAULANHOMEPAGEModel.FK_Event_Games" >
-          <ConnectorPoint PointX="2" PointY="1.8939925130208337" />
-          <ConnectorPoint PointX="3" PointY="1.8939925130208337" />
+      <Diagram Name="AAUlanDatabase">
+        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Event" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Games" Width="1.5" PointX="0.75" PointY="1.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.LAN" Width="1.5" PointX="0.75" PointY="5.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.Mad" Width="1.5" PointX="5.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AAULANHOMEPAGEModel.User" Width="1.5" PointX="2.75" PointY="5.75" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="AAULANHOMEPAGEModel.FK_Event_Games" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.4901432291666667" />
+          <ConnectorPoint PointX="3" PointY="2.4901432291666667" />
         </AssociationConnector>
-        <AssociationConnector Association="AAULANHOMEPAGEModel.FK_Event_LAN" >
-          <ConnectorPoint PointX="2.125" PointY="5.0908419713541662" />
-          <ConnectorPoint PointX="3.75" PointY="5.0908419713541662" />
-          <ConnectorPoint PointX="3.75" PointY="4.1340950520833326" />
+        <AssociationConnector Association="AAULANHOMEPAGEModel.FK_Event_LAN" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.5403857421875" />
+          <ConnectorPoint PointX="4.40625" PointY="7.5403857421875" />
+          <ConnectorPoint PointX="4.40625" PointY="4.1340950520833335" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
