@@ -10,7 +10,14 @@ namespace AAUlan.Models
 
         public int timeToStart()
         {
-            return (int)(this.EndTime - DateTime.Now).TotalSeconds;
+            if (this.EndTime == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)(this.EndTime - DateTime.Now).TotalSeconds;
+            }
         }
 
     }

@@ -91,19 +91,31 @@
             <li><%: Html.ActionLink("Games", "AllGames", "Admin") %></li>
             <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
             <li><a href="http://challonge.com" target="_blank">Turneringer</a></li>
-            <%if (Context.User.Identity.IsAuthenticated && (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Crew")))
-                {%>
+        </ul>
+    </div>
+            
+    <%if (Context.User.Identity.IsAuthenticated && (Context.User.IsInRole("Administrator") || Context.User.IsInRole("Crew")))
+        {%>
+        <div class="menucontainer">
+            <ul id="menu">
                 <li><%: Html.ActionLink("Users","RoleAssignment", "Admin") %></li>
                 <li><%: Html.ActionLink("Lans", "AllLans", "Admin") %></li>
                 <li><%: Html.ActionLink("Events", "AllEvents", "Admin")%></li>
                 <li><%: Html.ActionLink("Orders", "AllOrders", "Order") %></li>
-            <%} %>
-        </ul>
-    </div>
+            </ul>
+        </div>
+        <%} %>
 
     <div id="javascript_countdown_time" class="maincontent">
     <script type="text/javascript" language="javascript">
-        javascript_countdown.init(<%: pizzatime.timeToStart() %>);
+        <% if (pizzatime == null)
+        { %>
+            javascript_countdown.init(0);
+        <%}
+        else
+        { %>
+            javascript_countdown.init(<%: pizzatime.timeToStart() %>);
+        <%} %>
     </script>
     </div>
 
