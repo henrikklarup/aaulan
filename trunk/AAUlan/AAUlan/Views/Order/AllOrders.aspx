@@ -12,11 +12,11 @@
     <%} %>
     <br />
 
-    <%using (Html.BeginForm("GetTotalOrders","Order", FormMethod.Get))
+    <%using (Html.BeginForm("GetTotalOrder","Order", FormMethod.Get))
       { %>
         <%: Html.Label("ID: ") %>
         <%: Html.TextBox("id")%>
-        <input type="submit" name="submitbutton1" value="Total orders" />
+        <input type="submit" value="Total orders" />
     <%} %>
 
 

@@ -112,7 +112,7 @@ namespace AAUlan.Controllers
         #region GetTotalOrders
         #region GET
         [HttpGet]
-        public ActionResult GetTotalOrders(int id)
+        public ActionResult GetTotalOrder(int id)
         {
             List<Mad> allFood = repo.GetAllOrdersWithId(id).OrderBy(s => s.Number).ToList();
             List<Mad> totalFood = new List<Mad>();
@@ -126,14 +126,10 @@ namespace AAUlan.Controllers
                     {
                         count++;
                     }
-                    else
-                    {
-                        Mad newMad = allFood[i];
-                        newMad.quantity = count;
-                        i = x;
-                        break;
-                    }
                 }
+                Mad newMad = allFood[i];
+                newMad.quantity = count;
+                totalFood.Add(newMad);
             }
 
             var viewModel = new OrderViewModel
@@ -141,7 +137,7 @@ namespace AAUlan.Controllers
                 Orders = totalFood
             };
 
-            return View("../Order/GetTotalOrders", viewModel);
+            return View("GetTotalOrder", viewModel);
         }
         #endregion
         #endregion
