@@ -2,26 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>AllOrders</h2>
-
-    <%using (Html.BeginForm("AllOrdersWithId","Order", FormMethod.Get))
-      { %>
-        <%: Html.Label("ID: ") %>
-        <%: Html.TextBox("id")%>
-        <input type="submit" name="submitbutton1" value="Get" />
-    <%} %>
-    <br />
-
-    <%using (Html.BeginForm("GetTotalOrders","Order", FormMethod.Get))
-      { %>
-        <%: Html.Label("ID: ") %>
-        <%: Html.TextBox("id")%>
-        <input type="submit" name="submitbutton1" value="Total orders" />
-    <%} %>
-
-
-        <%using (Html.BeginForm("AllOrders", "Order", FormMethod.Post))
-          { %>
+    <h2>GetTotalOrder</h2>
 
     <table class="userManagement">
         <tr>
@@ -40,7 +21,9 @@
             <th>
                 Paid
             </th>
-            <th></th>
+            <th>
+                Quantity
+            </th>
         </tr>
 
     <% for (int i = 0; i < Model.Orders.Count; i++)
@@ -63,14 +46,12 @@
                 <%: Html.CheckBoxFor(model => Model.Orders[i].Paid)%>
             </td>
             <td>
-                <%: Html.ActionLink("Delete", "DeleteOrder", new{ id = Model.Orders[i].ID }) %>
+                <%: Model.Orders[i].quantity %>
             </td>
         </tr>
     <% } %>
 
     </table>
-    <input type="submit" value="Save Changes" />
-    <%} %>
 
 </asp:Content>
 
@@ -79,4 +60,3 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Title" runat="server">
 </asp:Content>
-

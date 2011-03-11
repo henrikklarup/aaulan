@@ -11,10 +11,6 @@
           <EntitySet Name="LAN" EntityType="AAULANHOMEPAGEModel.Store.LAN" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Mad" EntityType="AAULANHOMEPAGEModel.Store.Mad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="AAULANHOMEPAGEModel.Store.User" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Event_Event" Association="AAULANHOMEPAGEModel.Store.FK_Event_Event">
-            <End Role="Event" EntitySet="Event" />
-            <End Role="Event1" EntitySet="Event" />
-          </AssociationSet>
           <AssociationSet Name="FK_Event_Games" Association="AAULANHOMEPAGEModel.Store.FK_Event_Games">
             <End Role="Games" EntitySet="Games" />
             <End Role="Event" EntitySet="Event" />
@@ -45,6 +41,7 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Description" Type="nchar" Nullable="false" MaxLength="300" />
           <Property Name="DL-Link" Type="nchar" MaxLength="300" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="300" />
         </EntityType>
         <EntityType Name="LAN">
           <Key>
@@ -75,18 +72,6 @@
           <Property Name="Password" Type="nchar" Nullable="false" MaxLength="50" />
           <Property Name="Role" Type="nchar" Nullable="false" MaxLength="15" />
         </EntityType>
-        <Association Name="FK_Event_Event">
-          <End Role="Event" Type="AAULANHOMEPAGEModel.Store.Event" Multiplicity="1" />
-          <End Role="Event1" Type="AAULANHOMEPAGEModel.Store.Event" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Event1">
-              <PropertyRef Name="ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Event_Games">
           <End Role="Games" Type="AAULANHOMEPAGEModel.Store.Games" Multiplicity="0..1" />
           <End Role="Event" Type="AAULANHOMEPAGEModel.Store.Event" Multiplicity="*" />
@@ -154,6 +139,7 @@
           <Property Type="String" Name="Description" Nullable="false" MaxLength="300" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="DL_Link" MaxLength="300" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Event" Relationship="AAULANHOMEPAGEModel.FK_Event_Games" FromRole="Games" ToRole="Event" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="LAN">
           <Key>
@@ -233,6 +219,7 @@
           <EntitySetMapping Name="Games">
             <EntityTypeMapping TypeName="AAULANHOMEPAGEModel.Games">
               <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DL_Link" ColumnName="DL-Link" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

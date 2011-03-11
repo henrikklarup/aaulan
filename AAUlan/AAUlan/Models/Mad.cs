@@ -9,5 +9,6 @@ namespace AAUlan.Models
     public partial class Mad
     {
         public string x {get; set;}
+        public int quantity { get; set; }
     }
 }

@@ -173,7 +173,12 @@ namespace AAUlan.Controllers
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult CreateGame(Games viewModel)
         {
-            repo.AddGame(viewModel);
+            if (viewModel.Name == null)
+                ModelState.AddModelError("Name", "Name must be valid");
+            else
+            {
+                repo.AddGame(viewModel);
+            }
 
             return RedirectToAction("Index", "Home");
         }
