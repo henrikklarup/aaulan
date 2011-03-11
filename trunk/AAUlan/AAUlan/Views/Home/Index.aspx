@@ -14,15 +14,15 @@
           {%>
         <fieldset>
             <legend><%:i.Name%> </legend>
-            <%: "Start Time: " + i.StartTime.ToString()%>
+            <p><strong>Start Time: </strong></p><%: i.StartTime.ToString()%>
             <br />
-            <%: "End Time: " + i.EndTime.ToString()%>
+            <p><strong>End time:</strong></p><%: i.EndTime.ToString()%>
             <br />
-            <%: "Game: " + i.Games.Description.ToString()%>
+            <p><strong>Game: </strong></p><%: i.Games.Description.ToString()%>
             <br />
-            <%: "Description: " + i.Description.ToString()%>
+            <p><strong>Description: </strong></p><%: i.Description.ToString()%>
             <br />
-            <%: "Rules: " + i.Rules.ToString()%>
+            <p><strong>Rules: </strong></p><%: i.Rules.ToString()%>
         </fieldset>
         <%}
       } %>
