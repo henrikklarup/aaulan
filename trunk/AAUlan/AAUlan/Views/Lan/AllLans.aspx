@@ -43,7 +43,7 @@
                 <%: item.Location %>
             </td>
             <td>
-                <%if (item.Event == null)
+                <%if (item.Event.Count == 0)
                   { %>
                 <%: Html.ActionLink("Delete", "DeleteLan", "Admin", new { id = item.ID }, null)%>
                 <%} %>
