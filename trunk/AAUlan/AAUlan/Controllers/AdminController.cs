@@ -142,6 +142,17 @@ namespace AAUlan.Controllers
         #endregion
         #endregion
 
+        #region DeleteEvent
+        #region GET
+        [HttpGet]
+        public ActionResult DeleteEvent(int id)
+        {
+            repo.DeleteEvent(id);
+            return RedirectToAction("AllEvents","Admin");
+        }
+        #endregion
+        #endregion
+
         #region AllEvents
         #region GET
         [HttpGet]

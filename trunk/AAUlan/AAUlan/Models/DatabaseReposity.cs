@@ -213,6 +213,15 @@ namespace AAUlan.Models
             Save();
         }
         #endregion
+
+        #region DeleteEvent
+        public void DeleteEvent(int id)
+        {
+            Event eventobject = aauEnt.Event.Where(s => s.ID == id).FirstOrDefault();
+            aauEnt.DeleteObject(eventobject);
+            Save();
+        }
+        #endregion
         #endregion
 
         #region UPDATE
