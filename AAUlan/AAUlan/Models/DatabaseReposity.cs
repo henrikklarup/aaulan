@@ -222,6 +222,15 @@ namespace AAUlan.Models
             Save();
         }
         #endregion
+
+        #region DeleteLan
+        public void DeleteLan(int id)
+        {
+            LAN lanobject = aauEnt.LAN.Where(s => s.ID == id).FirstOrDefault();
+            aauEnt.DeleteObject(lanobject);
+            Save();
+        }
+        #endregion
         #endregion
 
         #region UPDATE

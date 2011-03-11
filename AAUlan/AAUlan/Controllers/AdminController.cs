@@ -104,6 +104,17 @@ namespace AAUlan.Controllers
         #endregion
         #endregion
 
+        #region DeleteLan
+        #region GET
+        [HttpGet]
+        public ActionResult DeleteLan(int id)
+        {
+            repo.DeleteLan(id);
+            return RedirectToAction("AllLans", "Admin");
+        }
+        #endregion
+        #endregion
+
         #region AllLans
         #region GET
         [HttpGet]
