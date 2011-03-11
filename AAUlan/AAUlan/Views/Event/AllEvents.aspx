@@ -33,6 +33,7 @@
             <th>
                 FoodID
             </th>
+            <th></th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -64,6 +65,9 @@
             </td>
             <td>
                 <%: item.FoodID %>
+            </td>
+            <td>
+                <%: Html.ActionLink("Delete Event", "DeleteEvent", "Admin", new { id = item.ID },null)%>
             </td>
         </tr>
     
