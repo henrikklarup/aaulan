@@ -11,6 +11,11 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
+                <%: Html.TextBoxFor(model => model.Name) %>
+                <%: Html.ValidationMessageFor(model => model.Name) %>
+            </div>
+
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.Description) %>
             </div>
             <div class="editor-field">

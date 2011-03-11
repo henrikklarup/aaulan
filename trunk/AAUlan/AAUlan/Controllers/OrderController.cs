@@ -108,5 +108,42 @@ namespace AAUlan.Controllers
         }
         #endregion
         #endregion
+
+        #region GetTotalOrders
+        #region GET
+        [HttpGet]
+        public ActionResult GetTotalOrders(int id)
+        {
+            List<Mad> allFood = repo.GetAllOrdersWithId(id).OrderBy(s => s.Number).ToList();
+            List<Mad> totalFood = new List<Mad>();
+
+            for (int i = 0; i < allFood.Count -1; i++)
+            {
+                int count = 1;
+                for (int x = i + 1; x < allFood.Count; x++)
+                {
+                    if (allFood[i].Number == allFood[x].Number && allFood[i].Note.ToLower() == allFood[x].Note.ToLower())
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        Mad newMad = allFood[i];
+                        newMad.quantity = count;
+                        i = x;
+                        break;
+                    }
+                }
+            }
+
+            var viewModel = new OrderViewModel
+            {
+                Orders = totalFood
+            };
+
+            return View("../Order/GetTotalOrders", viewModel);
+        }
+        #endregion
+        #endregion
     }
 }

@@ -551,11 +551,13 @@ namespace AAUlan.Models
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static Games CreateGames(global::System.Int32 id, global::System.String description)
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Games CreateGames(global::System.Int32 id, global::System.String description, global::System.String name)
         {
             Games games = new Games();
             games.ID = id;
             games.Description = description;
+            games.Name = name;
             return games;
         }
 
@@ -636,6 +638,30 @@ namespace AAUlan.Models
         private global::System.String _DL_Link;
         partial void OnDL_LinkChanging(global::System.String value);
         partial void OnDL_LinkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
 
         #endregion
     

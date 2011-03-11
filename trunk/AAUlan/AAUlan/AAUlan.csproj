@@ -112,6 +112,7 @@
     <Content Include="Views\Login\Create.aspx" />
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\Order\AllOrders.aspx" />
+    <Content Include="Views\Order\GetTotalOrder.aspx" />
     <Content Include="Views\Order\Status.aspx" />
     <Content Include="Views\Order\Index.aspx" />
     <Content Include="Views\Shared\LoginBox.ascx" />

@@ -7,6 +7,9 @@
     <table class="userManagement">
         <tr>
             <th>
+                Name
+            </th>
+            <th>
                 ID
             </th>
             <th>
@@ -20,6 +23,9 @@
     <% foreach (var item in Model) { %>
     
         <tr>
+            <td>
+                <%: item.Name %>
+            </td>
             <td>
                 <%: item.ID %>
             </td>
