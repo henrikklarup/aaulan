@@ -42,6 +42,13 @@ namespace AAUlan.Models
         }
         #endregion
 
+        #region GetLanFromID
+        public LAN GetLanFromID(int id)
+        {
+            return aauEnt.LAN.Where(s => s.ID == id).FirstOrDefault();
+        }
+        #endregion
+
         #region GetAllFutureEvents
         public IQueryable<Event> GetAllFutureEvents(int lanID)
         {
