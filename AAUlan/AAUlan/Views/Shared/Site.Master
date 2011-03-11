@@ -90,7 +90,7 @@
             <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
             <li><%: Html.ActionLink("Games", "AllGames", "Admin") %></li>
             <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
-            <li><a href="http://challonge.com" target="_blank">Turneringer</a></li>
+            <li><a href="http://aaulan.challonge.com" target="_blank">Turneringer</a></li>
         </ul>
     </div>
             
