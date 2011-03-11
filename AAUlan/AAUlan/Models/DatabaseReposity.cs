@@ -8,7 +8,7 @@ namespace AAUlan.Models
 {
     public class DatabaseReposity
     {
-        AAULANHOMEPAGEEntities aauEnt = new AAULANHOMEPAGEEntities();
+        AAULANHOMEPAGEEntities1 aauEnt = new AAULANHOMEPAGEEntities1();
 
         #region GET
 
