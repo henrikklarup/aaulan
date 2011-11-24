@@ -91,7 +91,8 @@ namespace AAUlan.Controllers
         [Authorize(Roles = "Administrator, Crew")]
         public ActionResult AllOrdersWithId(int id)
         {
-            var viewModel = repo.GetAllOrdersWithId(id);
+            OrderViewModel viewModel = new OrderViewModel();
+            viewModel.Orders = repo.GetAllOrdersWithId(id).ToList<Mad>();
             return View("../Order/AllOrders", viewModel);
         }
         #endregion
@@ -116,8 +117,32 @@ namespace AAUlan.Controllers
         {
             List<Mad> allFood = repo.GetAllOrdersWithId(id).OrderBy(s => s.Number).ToList();
             List<Mad> totalFood = new List<Mad>();
+            List<int> checkedIds = new List<int>();
 
-            for (int i = 0; i < allFood.Count -1; i++)
+            if (allFood.Count != 0)
+            {
+                for (int i = 0; i < allFood.Count; i++)
+                {
+                    int count = 1;
+                    for (int x = i + 1; x < allFood.Count; x++)
+                    {
+                        if (allFood[i].Number == allFood[x].Number && allFood[i].Note.ToLower() == allFood[x].Note.ToLower())
+                        {
+                            count++;
+                            checkedIds.Add(x);
+                        }
+                    }
+                    if (!checkedIds.Contains(i))
+                    {
+                        Mad newMad = allFood[i];
+                        newMad.quantity = count;
+                        totalFood.Add(newMad);
+                    }
+                }
+            }
+
+            /*
+            for (int i = 0; i <= allFood.Count -1; i++)
             {
                 int count = 1;
                 for (int x = i + 1; x < allFood.Count; x++)
@@ -130,7 +155,7 @@ namespace AAUlan.Controllers
                 Mad newMad = allFood[i];
                 newMad.quantity = count;
                 totalFood.Add(newMad);
-            }
+            }*/
 
             var viewModel = new OrderViewModel
             {

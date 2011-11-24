@@ -7,19 +7,13 @@
     <table class="userManagement">
         <tr>
             <th>
-                Name
+                Number
             </th>
             <th>
                 Note
             </th>
             <th>
-                Number
-            </th>
-            <th>
                 FOOD ID!
-            </th>
-            <th>
-                Paid
             </th>
             <th>
                 Quantity
@@ -29,23 +23,16 @@
     <% for (int i = 0; i < Model.Orders.Count; i++)
        { %>
         <tr>
-            <td>
-                <%: Model.Orders[i].Name%>
-                <%: Html.HiddenFor(model => Model.Orders[i].ID) %>
-            </td>
-            <td>
-                <%: Model.Orders[i].Note%>
-            </td>
-            <td>
+            <td align=center>
                 <%: Model.Orders[i].Number%>
             </td>
-            <td>
+            <td align=center>
+                <%: Model.Orders[i].Note%>
+            </td>
+            <td align=center>
                 <%: Model.Orders[i].EVENTID%>
             </td>
-            <td>
-                <%: Html.CheckBoxFor(model => Model.Orders[i].Paid)%>
-            </td>
-            <td>
+            <td align=center>
                 <%: Model.Orders[i].quantity %>
             </td>
         </tr>
