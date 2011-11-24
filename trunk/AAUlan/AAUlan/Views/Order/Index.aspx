@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Order Pizza</h2>
     <%using (Html.BeginForm("Index", "Order"))
       { %>
     <p><%: Html.Label("Navn: ") %></p>

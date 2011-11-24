@@ -102,6 +102,7 @@
     <Content Include="Content\topbar.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\AAUlanDatabase.edmx.sql" />
     <Content Include="Views\Event\AllEvents.aspx" />
     <Content Include="Views\Event\Event.aspx" />
     <Content Include="Views\Game\AllGames.aspx" />
