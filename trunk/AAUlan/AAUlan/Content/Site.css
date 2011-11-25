@@ -372,11 +372,12 @@ button:hover
     border: 1px solid #000000;
     background: #e8eef4;
 }
+
 label 
 {
-    display: block;
-    width: 150px;
+    /*display: block;*/
+    width: 200px;
     float: left;
-    margin: 2px 4px 6px 4px;
+    margin: 2px 4px 5px 4px;
     text-align: right;
 }
