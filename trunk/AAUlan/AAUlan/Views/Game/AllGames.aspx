@@ -33,7 +33,14 @@
                 <%: item.Description %>
             </td>
             <td>
-                <%: item.DL_Link %>
+                <% if (item.DL_Link != null)
+                   { %>
+                <a href="<%:item.DL_Link%>" >Download</a>
+                <%}
+                   else
+                   {%>
+                   No link provided
+                   <%} %>
             </td>
         </tr>
     
