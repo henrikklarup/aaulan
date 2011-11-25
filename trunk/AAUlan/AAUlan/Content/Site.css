@@ -344,19 +344,36 @@ ul#menu li.selected a
 /* Styles for forms
 --------------------------------------------------------- */
 
-input {
-    border: 1px solid #006;
-    background: #ffc;
+input 
+{
+    border: 1px solid #000000;
+    background: #e8eef4;
 }
-input:hover {
-    border: 1px solid #f00;
-    background: #ff6;
+input:hover 
+{
+    border: 1px solid #000000;
+    background: #ffffff;
 }
-button {
-    border: 1px solid #006;
-    background: #ccf;
+input:active
+{
+    border: 1px solid #337928;
+    background: #e8eef4;
 }
-button:hover {
-    border: 1px solid #f00;
-    background: #eef;
+button 
+{
+    border: 1px solid #000000;
+    background: #e8eef4;
+}
+button:hover 
+{
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+label 
+{
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
 }
