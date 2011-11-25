@@ -340,3 +340,23 @@ ul#menu li.selected a
 {
     width: 6em;
 }
+
+/* Styles for forms
+--------------------------------------------------------- */
+
+input {
+    border: 1px solid #006;
+    background: #ffc;
+}
+input:hover {
+    border: 1px solid #f00;
+    background: #ff6;
+}
+button {
+    border: 1px solid #006;
+    background: #ccf;
+}
+button:hover {
+    border: 1px solid #f00;
+    background: #eef;
+}
