@@ -347,27 +347,30 @@ ul#menu li.selected a
 input 
 {
     border: 1px solid #000000;
-    background: #e8eef4;
+    background: #ffffff;
 }
 input:hover 
 {
     border: 1px solid #000000;
+    background: #e8eef4;
+}
+input.selected
+{
     background: #ffffff;
 }
-input:active
+input:focus
 {
-    border: 1px solid #337928;
-    background: #e8eef4;
+    outline: #4D7A45 solid 2px;
 }
 button 
 {
     border: 1px solid #000000;
-    background: #e8eef4;
+    background: #ffffff;
 }
 button:hover 
 {
     border: 1px solid #000000;
-    background: #ffffff;
+    background: #e8eef4;
 }
 label 
 {
