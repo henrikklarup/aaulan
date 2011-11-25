@@ -76,7 +76,7 @@
 </div>
 
 <div class="slogo" id="slogo">
-    <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="300" style="opacity:0.3;filter:alpha(opacity=30)" />
+    <img src="../../Content/Studentersamfundet-hvid.png" alt="slogo" height="400" style="opacity:0.3;filter:alpha(opacity=30)" />
 </div>
 
 <div class="topbanner">
@@ -89,8 +89,8 @@
             <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
             <li><%: Html.ActionLink("Order Pizza", "Index", "Order")%></li>
             <li><%: Html.ActionLink("Games", "AllGames", "Admin") %></li>
-            <li><a href="http://www.klingen.dk" target="_blank">Menukort</a></li>
-            <li><a href="http://aaulan.challonge.com" target="_blank">Turneringer</a></li>
+            <li><a href="http://www.klingen.dk" target="_blank">Menu</a></li>
+            <li><a href="http://aaulan.challonge.com" target="_blank">Tournaments</a></li>
         </ul>
     </div>
             

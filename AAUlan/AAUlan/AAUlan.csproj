@@ -14,6 +14,7 @@
     <AssemblyName>AAUlan</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +99,8 @@
     </Content>
     <Content Include="Content\aaulanlogo.png" />
     <Content Include="Content\OrderScript.js" />
+    <Content Include="Content\pizza1.png" />
+    <Content Include="Content\pizza2.png" />
     <Content Include="Content\Studentersamfundet-hvid.png" />
     <Content Include="Content\topbar.png" />
     <Content Include="Global.asax" />
