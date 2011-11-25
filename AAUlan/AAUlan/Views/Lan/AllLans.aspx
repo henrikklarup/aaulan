@@ -21,7 +21,9 @@
             <th>
                 Location
             </th>
-            <th></th>
+            <th>
+                Control
+            </th>
         </tr>
 
     <% foreach (var item in Model) { %>
@@ -46,7 +48,11 @@
                 <%if (item.Event.Count == 0)
                   { %>
                 <%: Html.ActionLink("Delete", "DeleteLan", "Admin", new { id = item.ID }, null)%>
-                <%} %>
+                <%}
+                  else
+                  {%>
+                This Lan have got events
+                <% }%>
             </td>
         </tr>
     
