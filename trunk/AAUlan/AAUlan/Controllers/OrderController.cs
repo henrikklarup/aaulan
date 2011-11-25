@@ -26,6 +26,9 @@ namespace AAUlan.Controllers
         [HttpPost]
         public ActionResult Index(OrderViewModel viewModel)
         {
+            if (viewModel.mad.Name == null|| viewModel.mad.Name == string.Empty)
+                return RedirectToAction("Status", new { status = 3 });
+
             if (viewModel.mad.Number < 1 || viewModel.mad.Number > 90)
             {
                 return RedirectToAction("Status", new { status = 2 });
@@ -54,7 +57,9 @@ namespace AAUlan.Controllers
             else if(status == 1)
                 viewModel.x = "Denied - There is no such event";
             else if(status == 2)
-                viewModel.x = "Denied - Out range exeption";
+                viewModel.x = "Denied - Out of range exeption";
+            else if (status == 3)
+                viewModel.x = "Denied - Motherfucker haz name?!";
 
             return View(viewModel);
         }
